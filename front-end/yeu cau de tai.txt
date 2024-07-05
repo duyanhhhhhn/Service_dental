@@ -1,0 +1,14 @@
+yêu cầu đề tài nhóm 3
+Dental
+
+phòng khám nha khoa 
+giới thiệu về khóa học nha khoa, bài viết liên quan nha khoa, trường đào tạo nha khoa,
+nghiên cứu liên quan về nha khoa
+
+sản phẩm nha khoa bàn chải , kem đánh răng
+
+tin tức chuyên nghành, tin tức về lời khuyên cho mọi người 
+
+có đánh giá về sản phẩm
+
+hiển thị số lượng truy cập
