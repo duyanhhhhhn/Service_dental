@@ -7,8 +7,60 @@ nghiên cứu liên quan về nha khoa
 
 sản phẩm nha khoa bàn chải , kem đánh răng
 
-tin tức chuyên nghành, tin tức về lời khuyên cho mọi người 
+tin tức chuyên nghành, tin tức về lời khuyên cho mọi người ->nhúng link tin tức vào font-end
 
-có đánh giá về sản phẩm
+có đánh giá về sản phẩm: Bảng sản phẩm, sản phẩm, bản khách hàng, 
 
-hiển thị số lượng truy cập
+trang admin: bảng user, login
+
+Header: 
+
+
+
+số trang cần có: user(nặc danh)-> 
+
+            Gioi thiệu: Về nha khoa, địa chỉ chi nhánh, cơ sở pháp lý phòng khám.(cố định fontend)
+            Dịch vụ: :Bọc răng, niềng răng, nhổ răng, sản phẩm(bàn chải, kem đánh răng. tăm nước)
+            Bảng giá  
+            Tin tức: giới thiệu về khóa học nha khoa, bài viết liên quan nha khoa, trường đào tạo nha khoa,
+            nghiên cứu liên quan về nha khoa
+            Đặt hẹn
+            Đăng ký/Đăng nhập
+
+
+            user(client login)->
+
+             Gioi thiệu: Về nha khoa, địa chỉ chi nhánh, cơ sở pháp lý phòng khám.
+            Dịch vụ: :Bọc răng, niềng răng, nhổ răng, sản phẩm(bàn chải, kem đánh răng. tăm nước) [Tên dịch vụ, bảng giá]
+            Bảng giá, review service 
+            Tin tức: giới thiệu về khóa học nha khoa, bài viết liên quan nha khoa, trường đào tạo nha khoa,
+            nghiên cứu liên quan về nha khoa
+            Đặt hẹn
+            Đăng xuất,
+
+
+
+            Admin: quản lý bài thành viên, quản lý bài viết, quản lý sản phẩm
+            
+
+
+Footer:
+
+DATABASE: Bảng products:
+        ->id;
+        ->name;
+        ->price();
+        ->đơn vị tính(Cái);
+        
+        Bảng users:
+        ->id;
+        ->user;
+        -password;
+        ->name;
+        ->phone;
+        ->address;
+        ->role id;
+        
+
+
+         
