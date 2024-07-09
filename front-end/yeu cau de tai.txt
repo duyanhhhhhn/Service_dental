@@ -51,6 +51,7 @@ DATABASE: Bảng products:
         ->name;
         ->price();
         ->đơn vị tính(Cái);
+        ->status
         
         Bảng users:
         ->id;
@@ -60,7 +61,8 @@ DATABASE: Bảng products:
         ->phone;
         ->address;
         ->role id;
-        
-
-
          
+        Bảng comment:
+        ->
+
+Chức năng :Thêm sửa xóa, login, giỏ hàng
