@@ -62,5 +62,67 @@ DATABASE: Bảng products:
         ->role id;
         
 
+NEW DATABASE : 
+Bảng 
+
+User đã có sẵn
++ id
++ email (to login)
++ password
++ fullname
++ address
++ phone
++ role_id (0 = user , 1 = admin)
++ status
++ created_at
++ updated_at
+
+ProductType
++ id
++ name
++ created_at
++ updated_at
+
+Product
++ id
++ name
++ description
++ typeId
++ price
++ rating
++ status
++ created_at
++ updated_at
+
+Review
++ id
++ user_id
++ product_id
++ content
++ rating
++ status
++ created_at
++ updated_at
+
+Image (1sp có nhiều hình)
++ id
++ product_id
++ thumbnail
++ status
++ created_at
++ updated_at
+
+News (lưu các tin tức)
++ id
++ title
++ description
++ content_link
++ thumbnail (1 TẤM)
++ status (ẩn bài viết)
++ created_at
++ updated_at
+
+
+
 
          
