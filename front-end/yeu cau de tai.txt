@@ -66,3 +66,11 @@ DATABASE: Bảng products:
         ->
 
 Chức năng :Thêm sửa xóa, login, giỏ hàng
+
+
+users bảng có sẵn của laravel, 
+products
+category
+bảng review
+image: hình ảnh sản phẩm (1 sản phảm có nhiều hình)
+news: tin tức, 
