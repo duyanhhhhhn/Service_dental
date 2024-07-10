@@ -5,10 +5,11 @@ import Header from "./components/FE_CLIENT/Layouts/Navbar";
 import Banner from './components/FE_CLIENT/Page/Banner';
 import Home from "./components/FE_CLIENT/Page/Home";
 import Service from "./components/FE_CLIENT/Page/Service";
+import About from "./components/FE_CLIENT/Page/About/About";
 const App = () => {
     return (
         <>
-    <Header />
+    {/* <Header />
         <BrowserRouter>
             <Routes>
                     <Route path="/" element={<Home />} />
@@ -16,7 +17,8 @@ const App = () => {
                     
             </Routes>
         </BrowserRouter>
-    <Footer/>
+    <Footer/> */}
+    <About />
         </>
        
     );

@@ -51,6 +51,7 @@ DATABASE: Bảng products:
         ->name;
         ->price();
         ->đơn vị tính(Cái);
+        ->status
         
         Bảng users:
         ->id;
@@ -60,7 +61,11 @@ DATABASE: Bảng products:
         ->phone;
         ->address;
         ->role id;
-        
+         
+        Bảng comment:
+        ->
+
+Chức năng :Thêm sửa xóa, login, giỏ hàng
 
 NEW DATABASE : 
 Bảng 
@@ -125,4 +130,9 @@ News (lưu các tin tức)
 
 
 
-         
+users bảng có sẵn của laravel, 
+products
+category
+bảng review
+image: hình ảnh sản phẩm (1 sản phảm có nhiều hình)
+news: tin tức, 
