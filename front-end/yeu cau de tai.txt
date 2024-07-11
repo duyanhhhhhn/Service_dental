@@ -76,30 +76,30 @@ User đã có sẵn
 + password
 + fullname
 + address
-+ phone
++ phone_number
 + role_id (0 = user , 1 = admin)
 + status
 + created_at
 + updated_at
 
-ProductType
+ProductTypes
 + id
 + name
 + created_at
 + updated_at
 
-Product
+Products
 + id
 + name
 + description
-+ typeId
++ type_id
 + price
-+ rating
++ avg_rating
 + status
 + created_at
 + updated_at
 
-Review
+Reviews
 + id
 + user_id
 + product_id
@@ -109,7 +109,7 @@ Review
 + created_at
 + updated_at
 
-Image (1sp có nhiều hình)
+Images (1sp có nhiều hình)
 + id
 + product_id
 + thumbnail
@@ -136,3 +136,5 @@ category
 bảng review
 image: hình ảnh sản phẩm (1 sản phảm có nhiều hình)
 news: tin tức, 
+
+chú ý create migration và foregin key laravel
