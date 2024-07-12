@@ -1,38 +1,47 @@
 import React from "react";
-import { Container, Row, Col, ListGroup, Image } from "react-bootstrap";
-import Banner from "./Banner";
-import icon_boc_rang_su_1 from "../Layouts/img/icon-boc-rang-su-1.png"
+import { Container, Row, Col, Card, Button, ListGroup } from "react-bootstrap";
+import '../Layouts/Service.css'
 const services = [
   {
+    id: 1,
     title: "Dịch vụ 1",
-    description: "Mô tả dịch vụ 1",
-    imgSrc: {icon_boc_rang_su_1},
+    description: "Mô tả dịch vụ 1.",
+    image: "path_to_image_1.jpg",
   },
   {
+    id: 2,
     title: "Dịch vụ 2",
-    description: "Mô tả dịch vụ 2",
-    imgSrc: {icon_boc_rang_su_1}
+    description: "Mô tả dịch vụ 2.",
+    image: "path_to_image_2.jpg",
   },
-  // Thêm các dịch vụ khác vào đây
+  {
+    id: 3,
+    title: "Dịch vụ 3",
+    description: "Mô tả dịch vụ 3.",
+    image: "path_to_image_3.jpg",
+  },
+  // Add more services as needed
 ];
 
 const Service = () => {
   return (
-    <>  
-      <Container className="py-4">
-        <Row>
-          {services.map((service, index) => (
-            <Col md={4} key={index} className="mb-4">
-              <div className="service-card">
-                <Image src={service.imgSrc} fluid />
-                <h3 className="mt-3">{service.title}</h3>
-                <p>{service.description}</p>
-              </div>
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </>
+    <Container className="py-4">
+      <h1 className="mb-4">Dịch vụ</h1>
+      <Row>
+        {services.map((service) => (
+          <Col md={4} key={service.id} className="mb-4">
+            <Card>
+              <Card.Img variant="top" src={service.image} />
+              <Card.Body>
+                <Card.Title>{service.title}</Card.Title>
+                <Card.Text>{service.description}</Card.Text>
+                <Button variant="primary">Xem thêm</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 };
 

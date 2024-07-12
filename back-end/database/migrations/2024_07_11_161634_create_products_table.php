@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->integer('price')->unsigned();
-            $table->float('avg_rating')->unsigned();
+            $table->float('avg_rating')->unsigned()->default(0);
             $table->bigInteger('type_id')->unsigned();
             $table->string('thumbnail');
             $table->tinyInteger('status')->default(1);
