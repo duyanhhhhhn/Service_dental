@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
 import banner from "../Layouts/img/banner.png";
-
+import 'bootstrap-icons/font/bootstrap-icons.css';
 const Banner = () => {
   return (
     <div
@@ -30,12 +30,22 @@ const Banner = () => {
           Hãy liên hệ với chúng tôi nếu bạn thấy có vấn đề về răng miệng
         </p>
         <div className="mt-4">
+          <Link to="#" style={{marginRight:'5px'}}>
+            <Button
+              variant="primary"
+              className="px-4 py-2 font-weight-medium rounded"
+              style={{backgroundColor:'white',color:'#333'}}
+            >
+     <i class="bi bi-calendar-check"> Đặt lịch</i>
+            </Button>
+          </Link>
           <Link to="#">
             <Button
               variant="primary"
               className="px-4 py-2 font-weight-medium rounded"
+              style={{backgroundColor:'white',color:'#333'}}
             >
-             Đặt lịch
+           <i class="bi bi-telephone-fill"> +123456789</i>
             </Button>
           </Link>
         </div>
