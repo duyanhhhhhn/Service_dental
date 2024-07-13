@@ -51,6 +51,7 @@ DATABASE: Bảng products:
         ->name;
         ->price();
         ->đơn vị tính(Cái);
+        ->status
         
         Bảng users:
         ->id;
@@ -60,7 +61,80 @@ DATABASE: Bảng products:
         ->phone;
         ->address;
         ->role id;
-        
-
-
          
+        Bảng comment:
+        ->
+
+Chức năng :Thêm sửa xóa, login, giỏ hàng
+
+NEW DATABASE : 
+Bảng 
+
+User đã có sẵn
++ id
++ email (to login)
++ password
++ fullname
++ address
++ phone_number
++ role_id (0 = user , 1 = admin)
++ status
++ created_at
++ updated_at
+
+ProductTypes
++ id
++ name
++ created_at
++ updated_at
+
+Products
++ id
++ name
++ description
++ type_id
++ price
++ avg_rating
++ status
++ created_at
++ updated_at
+
+Reviews
++ id
++ user_id
++ product_id
++ content
++ rating
++ status
++ created_at
++ updated_at
+
+Images (1sp có nhiều hình)
++ id
++ product_id
++ thumbnail
++ status
++ created_at
++ updated_at
+
+News (lưu các tin tức)
++ id
++ title
++ description
++ content_link
++ thumbnail (1 TẤM)
++ status (ẩn bài viết)
++ created_at
++ updated_at
+
+
+
+
+users bảng có sẵn của laravel, 
+products
+category
+bảng review
+image: hình ảnh sản phẩm (1 sản phảm có nhiều hình)
+news: tin tức, 
+
+chú ý create migration và foregin key laravel

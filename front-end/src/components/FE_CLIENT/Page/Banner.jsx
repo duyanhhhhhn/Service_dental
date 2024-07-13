@@ -16,7 +16,7 @@ const Banner = () => {
             height: '500px',
             display: 'flex',
             alignItems: 'center',
-          justifyContent: 'center',
+            justifyContent: 'center',
             width:'auto'
       }}
     >
