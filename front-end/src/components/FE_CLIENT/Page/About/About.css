@@ -1,0 +1,99 @@
+/* About.css */
+
+.about-page .slider {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-page .slider-item {
+  position: relative;
+}
+
+.about-page .slider-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.about-page .content-wrapper {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  color: black
+}
+
+.about-page .container-tilte .slide-content h2 {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.about-page .slider-button {
+  display: inline-block;
+  background: red;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.home-features .slogan-section h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.home-features p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.single-feature .icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.single-feature h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.single-feature p {
+  font-size: 16px;
+  color: #666;
+}
+
+.bg-light {
+  background-color: #f8f9fa !important;
+}
+
+.text-primary {
+  color: #007bff !important;
+}
+
+.text-secondary {
+  color: #6c757d !important;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #333;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
