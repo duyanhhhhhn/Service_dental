@@ -3,7 +3,6 @@ import { Container, Row, Col, ListGroup, Image,  } from "react-bootstrap";
 import Banner from "./Banner";
 import dentalImg from "../Layouts/img/dentalImg.jpg"
 import teeth1 from "../Layouts/img/teeth1.jpg"
-import 'bootstrap-icons/font/bootstrap-icons.css';
 import Services from "./Services";
 import News from "./NewsandEvent";
 import Customercomman from "./Customercomman";

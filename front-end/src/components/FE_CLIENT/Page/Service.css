@@ -15,13 +15,17 @@ h1 {
 }
 
 .card img {
-    max-height: 200px;
-    object-fit: cover;
+    height: 170px;
+    object-fit: contain;
+    /* Điều chỉnh hình ảnh để phù hợp với khung */
+    aspect-ratio: 1/1;
+    /* Thiết lập tỉ lệ khung hình cho hình ảnh */
 }
 
 .card-title {
     font-size: 1.25rem;
-    font-weight: bold;
+    font-weight: 600;
+    text-align: center;
 }
 
 .card-text {
@@ -37,4 +41,11 @@ button {
 button:hover {
     background-color: #0056b3;
     border-color: #004085;
+}
+
+.service-link {
+    text-decoration: none;
+    /* Loại bỏ gạch chân */
+    color: inherit;
+    /* Giữ nguyên màu sắc của văn bản */
 }

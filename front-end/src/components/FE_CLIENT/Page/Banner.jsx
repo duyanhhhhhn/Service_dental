@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
 import banner from "../Layouts/img/banner.png";
-import 'bootstrap-icons/font/bootstrap-icons.css';
 const Banner = () => {
   return (
     <div
