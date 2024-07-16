@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\product_types;
-class product_types extends Controller
+use App\Models\ProductType;
+class ProductTypesController extends Controller
 {
     //
 
     public function index()
     {
-        $types = product_types:: all();
+        $types = ProductType:: all();
         return response()->json($types);
     }
 }

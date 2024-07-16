@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Image, Card } from "react-bootstrap";
-import "./Services.css";
+import '../assets/css/Services.css'
 
 const Customercomman = () => {
   const ServiceData = [

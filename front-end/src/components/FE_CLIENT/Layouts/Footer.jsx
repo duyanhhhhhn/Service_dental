@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import '../Layouts/Footer.css'
+import '../assets/css/Footer.css'
 const Footer = () => {
   return (
     <div style={{backgroundColor:"#2E6368"}} className="footer">

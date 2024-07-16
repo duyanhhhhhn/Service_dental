@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
-import "./Services.css";
+import '../assets/css/Services.css'
 import servicesbanner from "../Layouts/img/service-banner.png";
 
 const Services = () => {
