@@ -1,0 +1,51 @@
+/* Service.css */
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.card {
+    border: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    height: 170px;
+    object-fit: contain;
+    /* Điều chỉnh hình ảnh để phù hợp với khung */
+    aspect-ratio: 1/1;
+    /* Thiết lập tỉ lệ khung hình cho hình ảnh */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.card-text {
+    color: #666;
+}
+
+button {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+button:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.service-link {
+    text-decoration: none;
+    /* Loại bỏ gạch chân */
+    color: inherit;
+    /* Giữ nguyên màu sắc của văn bản */
+}

@@ -13,7 +13,7 @@ const Header = () => {
           <Nav className="ms-auto" > 
             <Nav.Link href="#"  style={{ color: 'white' }}>About us</Nav.Link>
             <Nav.Link href="#"  style={{ color: 'white' }}>Doctor</Nav.Link>
-            <Nav.Link href="#"  style={{ color: 'white' }}>Services</Nav.Link>
+            <Nav.Link href="http://localhost:3000/service"  style={{ color: 'white' }}>Services</Nav.Link>
             <NavDropdown title="Blog" id="blog-dropdown" color='white'>
               <NavDropdown.Item href="" >Blogs</NavDropdown.Item>
               <NavDropdown.Item href="" >Blogs 1</NavDropdown.Item>
