@@ -1,8 +1,7 @@
 import React from 'react';
 import { FaPlusSquare } from 'react-icons/fa';
-import './About.css'; // Import your CSS file for styling
+import './About.css'; 
 import DentalClinicHero from '../../Layouts/img/DentalClinicHero.jpg';
-import { Link } from 'react-router-dom';
 import { MdLocationOn, MdAttachEmail } from 'react-icons/md';
 import { BsFillTelephoneOutboundFill } from 'react-icons/bs';
 

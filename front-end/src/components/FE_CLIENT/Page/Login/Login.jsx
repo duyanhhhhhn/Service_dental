@@ -79,6 +79,7 @@ const Login = () => {
                   >
                     Login
                   </Button>
+                  <a href="/Register" className='btn btn-success'>Register</a>
                 </Form>
               </Card.Body>
             </Card>

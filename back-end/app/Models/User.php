@@ -41,11 +41,6 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
-<<<<<<< HEAD
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-=======
     protected function casts(): array
     {
         return [
@@ -58,5 +53,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review::class);
     }
->>>>>>> d4791d7063c8949ab62d647a75e5946ab0e57046
 }
