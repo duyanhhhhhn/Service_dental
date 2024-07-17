@@ -16,4 +16,8 @@ class News extends Model
         'thumbnail',
         'status',
     ];
+    public function new()
+    {
+        return $this->belongsTo(News::class);
+    }
 }

@@ -7,4 +7,9 @@ use Illuminate\Http\Request;
 class NewsController extends Controller
 {
     //
+    public function index()
+    {
+        $news = News:: all();
+        return response()->json($New);
+    }
 }

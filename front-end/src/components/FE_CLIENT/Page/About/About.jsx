@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React from 'react';
 import { FaPlusSquare } from 'react-icons/fa';
 import './About.css'; 
@@ -224,6 +225,20 @@ const About = () => {
         </div>
       </section>
     </div>
+=======
+import React from "react";
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
+import EventsList from "../EventsList/EventsList";
+import QualityService from "../QualityService/QualityService";
+
+const About = () => {
+  return (
+    <>
+      <Breadcrumbs title="About us" />
+      <QualityService />
+      <EventsList />
+    </>
+>>>>>>> Stashed changes
   );
 };
 

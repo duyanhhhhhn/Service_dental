@@ -21,8 +21,5 @@ class Review extends Model
     {
         return $this->belongsTo(ProductType::class);
     }
-    public function users()
-    {
-        return $this->belongsTo(User::class);
-    }
+
 }
