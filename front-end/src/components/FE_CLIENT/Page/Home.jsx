@@ -54,7 +54,7 @@ const Home = () => {
       </Container>
       <Services />
       <News />
-      <Customercomman/>
+      {/* <Customercomman/> */}
       <div style={{paddingBottom:'50px'}}></div>
     </>
   
