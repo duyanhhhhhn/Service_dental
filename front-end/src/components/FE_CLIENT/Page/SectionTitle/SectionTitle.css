@@ -1,0 +1,60 @@
+.section-title {
+    margin-bottom: 100px;
+}
+
+.section-title span {
+    color: #007bff; /* $color-blue */
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.section-title h2 {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.section-title p {
+    color: #000000; /* $color-black */
+    font-weight: 500;
+}
+
+/* Mobile Responsive */
+@media (max-width: 575px) {
+    .section-title {
+        margin-bottom: 20px;
+    }
+    .section-title span {
+        margin-bottom: 5px;
+    }
+    .section-title h2 {
+        font-size: 70px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .section-title {
+        margin-bottom: 20px;
+    }
+    .section-title span {
+        margin-bottom: 5px;
+    }
+    .section-title h2 {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .section-title {
+        margin-bottom: 30px;
+    }
+    .section-title span {
+        margin-bottom: 5px;
+    }
+    .section-title h2 {
+        font-size: 30px;
+    }
+}

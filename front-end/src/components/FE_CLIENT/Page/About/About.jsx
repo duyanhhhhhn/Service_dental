@@ -16,7 +16,7 @@ const About = () => {
               <div className="container-tilte">
                 <div className="slide-content">
                   <h2><span>Free Dental Care for Kids and Seniors for Eligible Families</span></h2>
-                  <a className="slider-button">Book Appointment Online</a>
+                  <a className="slider-button" href='http://localhost:3000/Appointment'>Book Appointment Online</a>
                 </div>
               </div>
             </div>
