@@ -14,7 +14,7 @@ import Products from './components/FE_CLIENT/Page/Product/Products';
 axios.defaults.baseURL ='http://127.0.0.1:8000/api'
 const App = () => {
     return (<>
-        <Header/>
+        {/* <Header/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path='/About' element={<About/>}/>
@@ -23,7 +23,8 @@ const App = () => {
             <Route path='/Register' element={<Register />} />
             <Route path='/Products'element={<Products/>} />
         </Routes>
-            <Footer />
+        <Footer /> */}
+        <Products/>
     </>
     );
 }
