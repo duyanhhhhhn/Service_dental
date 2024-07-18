@@ -8,6 +8,7 @@ import About from './components/FE_CLIENT/Page/About/About';
 import Service from './components/FE_CLIENT/Page/Service';
 import Login from './components/FE_CLIENT/Page/Login/Login';
 import Register from './components/FE_CLIENT/Page/Register/Register';
+import News from './components/FE_CLIENT/Page/News/News';
 
 const App = () => {
     return (<>
@@ -18,6 +19,7 @@ const App = () => {
             <Route path='/Services' element={<Service />} />
             <Route path='/login' element={<Login />} />
             <Route path='/Register' element={<Register/> } />
+            <Route path='/News' element={<News/> } />
         </Routes>
             <Footer />
     </>
