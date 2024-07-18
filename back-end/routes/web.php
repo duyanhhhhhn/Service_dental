@@ -14,6 +14,5 @@ Route::get('/', function () {
 });
 
 Route::get('/producttypes',[ProductTypesController::class,'index']);
-Route::get('/products',[ProductsController::class,'index']);
-Route::get('/news',[NewsController::class,'index']);
+Route::get('/api/products',[ProductsController::class,'index']);
 Route::get('/login',[AuthController::class,'login']);

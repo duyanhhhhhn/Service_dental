@@ -11,18 +11,16 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault();
 
     try {
-      const response = await axios.post('API_URL/login', {
+      const response = await axios.get('login', {
         email,
         password,
       });
 
       const { token } = response.data;
       localStorage.setItem('token', token);
-
-      navigate('/home');
+      navigate('/Home');
     } catch (err) {
       setError('Đăng nhập thất bại. Vui lòng kiểm tra lại email và mật khẩu.');
     }
