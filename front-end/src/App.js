@@ -8,8 +8,11 @@ import About from './components/FE_CLIENT/Page/About/About';
 import Service from './components/FE_CLIENT/Page/Service';
 import Login from './components/FE_CLIENT/Page/Login/Login';
 import Register from './components/FE_CLIENT/Page/Register/Register';
-import Appointment from './components/FE_CLIENT/Page/Appointment/Appointment';
+import News from './components/FE_CLIENT/Page/News/News';
+import axios from 'axios';
+import Products from './components/FE_CLIENT/Page/Product/Products';
 
+axios.defaults.baseURL ='http://127.0.0.1:8000/api'
 const App = () => {
     return (<>
         <Header/>
@@ -19,11 +22,13 @@ const App = () => {
             <Route path='/Services' element={<Service />} />
             <Route path='/login' element={<Login />} />
             <Route path='/Register' element={<Register/> } />
-            <Route path='/Appointment' element={<Appointment/>}/>
+            <Route path='/News' element={<News/> } />
+            <Route path='/Products'element={<Products/>} />
         </Routes>
-            <Footer />
+        <Footer />
     </>
     );
 }
+
 
 export default App;
