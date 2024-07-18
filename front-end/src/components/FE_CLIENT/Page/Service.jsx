@@ -78,7 +78,7 @@ const Service = () => {
         {services.map((service) => (
           <Col md={4} key={service.id} className="mb-4">
             <Link to={service.link} className="service-link">
-            <Card>
+            <Card style={{border:'1px solid #ccc'}}>
               <Card.Img variant="top" src={service.image} />
               <Card.Body>
                 <Card.Title>{service.title}</Card.Title>
