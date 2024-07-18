@@ -1,0 +1,43 @@
+/* News.css */
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.card {
+    border: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #666;
+}
+
+.news-link {
+    text-decoration: none;
+    /* Loại bỏ gạch chân */
+    color: inherit;
+    /* Giữ nguyên màu sắc của văn bản */
+}
+
+.news-link:hover {
+    text-decoration: underline;
+    /* Tùy chọn: Thêm gạch chân khi hover nếu muốn */
+    color: #0056b3;
+    /* Tùy chọn: Thay đổi màu sắc khi hover nếu muốn */
+}

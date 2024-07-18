@@ -8,6 +8,7 @@ import About from './components/FE_CLIENT/Page/About/About';
 import Service from './components/FE_CLIENT/Page/Service';
 import Login from './components/FE_CLIENT/Page/Login/Login';
 import Register from './components/FE_CLIENT/Page/Register/Register';
+import News from './components/FE_CLIENT/Page/News/News';
 import axios from 'axios';
 import Products from './components/FE_CLIENT/Page/Product/Products';
 
@@ -20,7 +21,8 @@ const App = () => {
             <Route path='/About' element={<About/>}/>
             <Route path='/Services' element={<Service />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/Register' element={<Register />} />
+            <Route path='/Register' element={<Register/> } />
+            <Route path='/News' element={<News/> } />
             <Route path='/Products'element={<Products/>} />
         </Routes>
         <Footer />
