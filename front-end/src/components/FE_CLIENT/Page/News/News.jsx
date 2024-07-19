@@ -19,7 +19,7 @@ const News = () => {
         {news?.map((item, index) => (
           <Col md={3} key={item.id} className="mb-4">
             <Card style={{border:'1px solid #ccc'}} className="h-100">
-              <Image src={item.thumbnail} alt="product" fluid className="card-img-top"  />
+              <Image src={item.thumbnail} alt="News" fluid className="card-img-top"  />
               <Card.Body>
                 <Card.Title>
                   <Link to={item.link} className="news-link">

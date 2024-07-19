@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
+import { Form, Button, Card, Container, Row, Col, Toast } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css'; // Import CSS file for custom styles
@@ -8,19 +8,24 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [showToast, setShowToast] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-
+    e.preventDefault(); // Ngăn chặn sự kiện mặc định của form submit
     try {
-      const response = await axios.get('login', {
+      const response = await axios.post('/login', {
         email,
         password,
       });
 
       const { token } = response.data;
       localStorage.setItem('token', token);
-      navigate('/Home');
+      setShowToast(true); // Hiển thị Toast thông báo thành công
+      setTimeout(() => {
+        setShowToast(false);
+        navigate('/dashboard'); // Chuyển hướng sau khi đăng nhập thành công
+      }, 2000);
     } catch (err) {
       setError('Đăng nhập thất bại. Vui lòng kiểm tra lại email và mật khẩu.');
     }
@@ -44,7 +49,7 @@ const Login = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      placeholder='email'
+                      placeholder='Email'
                     />
                   </Form.Group>
 
@@ -55,7 +60,7 @@ const Login = () => {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
-                      placeholder='password'
+                      placeholder='Password'
                     />
                   </Form.Group>
 
@@ -77,13 +82,21 @@ const Login = () => {
                   >
                     Login
                   </Button>
-                  <a href="/Register" className='btn btn-success'>Register</a>
                 </Form>
               </Card.Body>
             </Card>
           </Col>
         </Row>
       </Container>
+      <Toast 
+        onClose={() => setShowToast(false)} 
+        show={showToast} 
+        delay={3000} 
+        autohide 
+        style={{ position: 'absolute', top: 20, right: 20 }}
+      >
+        <Toast.Body>Đăng nhập thành công!</Toast.Body>
+      </Toast>
     </section>
   );
 };

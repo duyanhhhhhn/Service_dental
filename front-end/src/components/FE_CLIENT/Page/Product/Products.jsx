@@ -8,9 +8,6 @@ const Products = () => {
     useEffect(() => {
         axios.get('products').then(resp => setProducts(resp.data));
     }, []);
-    
-    console.log(products);
-    
     return (
         <Container>
             <Row>
