@@ -41,3 +41,10 @@ h1 {
     color: #0056b3;
     /* Tùy chọn: Thay đổi màu sắc khi hover nếu muốn */
 }
+
+.newsLink {
+    text-decoration: none;
+    /* Loại bỏ gạch chân */
+    color: inherit;
+    /* Giữ nguyên màu sắc của văn bản */
+}

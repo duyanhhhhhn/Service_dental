@@ -11,17 +11,12 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" > 
-            <Nav.Link href="/About"  style={{ color: 'white' }}>About us</Nav.Link>
-            <Nav.Link href="/Services"  style={{ color: 'white' }}>Services</Nav.Link>
-            <Nav.Link href="Appointment"  style={{ color: 'white' }}>Appointment</Nav.Link>
-            <Nav.Link href="Products" style={{ color: 'white' }}>Products</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown" style={{color: '#fff'}}>
-              <NavDropdown.Item href="/News">News</NavDropdown.Item>
-              <NavDropdown.Item href="/Cart">
-              Cart
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="Login"  style={{ color: 'white' }}>Login</Nav.Link>
+            <Nav.Link href="/about"  style={{ color: 'white' }}>About us</Nav.Link>
+            <Nav.Link href="/services"  style={{ color: 'white' }}>Services</Nav.Link>
+            <Nav.Link href="/appointment"  style={{ color: 'white' }}>Appointment</Nav.Link>
+            <Nav.Link href="/products" style={{ color: 'white' }}>Products</Nav.Link>
+            <Nav.Link href="/news" style={{ color: 'white' }}>News</Nav.Link>
+            <Nav.Link href="/login"  style={{ color: 'white' }}>Login</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

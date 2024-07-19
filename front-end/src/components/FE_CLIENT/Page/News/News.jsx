@@ -18,17 +18,19 @@ const News = () => {
       <Row>
         {news?.map((item, index) => (
           <Col md={3} key={item.id} className="mb-4">
-            <Card style={{border:'1px solid #ccc'}} className="h-100">
-              <Image src={item.thumbnail} alt="product" fluid className="card-img-top"  />
-              <Card.Body>
-                <Card.Title>
-                  <Link to={item.link} className="news-link">
-                    {item.title}
-                  </Link>
-                </Card.Title>
-                <Card.Text>{item.description}</Card.Text>
-              </Card.Body>
-            </Card>
+            <Link to={`${item.id}`} className="newsLink">
+              <Card style={{border:'1px solid #ccc'}} className="h-100">
+                <Image src={item.thumbnail} alt="product" fluid className="card-img-top"  />
+                <Card.Body>
+                  <Card.Title>
+                    <Link to={item.link} className="news-link">
+                      {item.title}
+                    </Link>
+                  </Card.Title>
+                  <Card.Text>{item.description}</Card.Text>
+                </Card.Body>
+                </Card>
+              </Link>
           </Col>
         ))}
       </Row>

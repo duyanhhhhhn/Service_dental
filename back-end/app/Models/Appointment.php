@@ -5,21 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Review extends Model
+class Appointment extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'cọntent',
-        'rating',
-        'product_id',
-        'user_id',
+        'name',
+        'address',
+        'phone_number',
         'status'
     ];
-
-    public function products()
-    {
-        return $this->belongsTo(ProductType::class);
-    }
 
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import '../assets/css/Footer.css'
+import { FaSearch } from "react-icons/fa";
 const Footer = () => {
   return (
     <div style={{backgroundColor:"#2E6368"}} className="footer">
@@ -40,7 +41,7 @@ const Footer = () => {
                 variant="primary"
                 className="border-primary border border-l-0 rounded-r-md px-4 py-3 bg-primary text-white hover:bg-transparent hover:text-primary transition"
               >
-             <i class="bi bi-send"></i>
+             <FaSearch/>
               </Button>
             </Form>
           </Col>
