@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Image, Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Image, Container, Row, Form, Col, Card, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch} from "@fortawesome/free-solid-svg-icons";
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -8,11 +10,22 @@ const Products = () => {
     useEffect(() => {
         axios.get('products').then(resp => setProducts(resp.data));
     }, []);
-    
-    console.log(products);
-    
+
+    const [keyword, setKeyword] = useState("");
+    const handleSearch = (e) => {
+      e.preventDefault();
+      let result = products.filter(item => item.name.includes(keyword));
+      setProducts(result)
+    }
+
     return (
         <Container>
+            <Form onSubmit={handleSearch}>
+                <Form.Control type="text " placeholder="Nhập vào thông tin tìm kiếm ... " onChange={(e) => setKeyword(e.target.value)}/>
+                <Button style={{margin : "15px 15px 15px 0"}} onClick={handleSearch}>
+                <FontAwesomeIcon icon={faSearch} /> Tìm kiếm
+                </Button>
+             </Form>
             <Row>
                 {products?.map((item, index) => (
                     <Col key={index} md={4} className="mb-4 my-5">
