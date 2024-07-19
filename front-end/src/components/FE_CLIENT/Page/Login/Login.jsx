@@ -1,42 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Login.css'; // Import CSS file for custom styles
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
+import './Login.css';
+import { Toast } from 'primereact/toast';
+import 'primereact/resources/themes/saga-blue/theme.css';
 
-const Login = () => {
+export default function Login() {
+  useEffect(() => {
+    document.title = 'Admin-Login';
+  }, []);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const navigate = useNavigate();
+  const toast = useRef(null);
 
-  const handleLogin = async (e) => {
+  useEffect(() => {
+    if (Cookies.get('login')) {
+      navigate('/admin');
+    }
+  }, [navigate]);
 
-    try {
-      const response = await axios.get('login', {
-        email,
-        password,
-      });
-
-      const { token } = response.data;
-      localStorage.setItem('token', token);
-      navigate('/Home');
-    } catch (err) {
-      setError('Đăng nhập thất bại. Vui lòng kiểm tra lại email và mật khẩu.');
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Ngăn chặn hành động mặc định của Enter trong form
+      login(event); // Gọi hàm đăng nhập
     }
   };
+
+  const showError = (message) => {
+    toast.current.show({ severity: 'error', summary: 'ERROR', detail: message || "Too many requests", life: 3000 });
+  };
+
+  const showSuccess = (message) => {
+    toast.current.show({ severity: 'success', summary: 'SUCCESS', detail: message || "Login successful", life: 3000 });
+  };
+
+  async function login(e) {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/api/login', {
+        email: email,
+        password: password
+      });
+      Cookies.set('login', response.data.token, { expires: 1 }); // Giả sử API trả về token
+      showSuccess('Login successful');
+      setTimeout(() => {
+        navigate('/admin');
+      }, 1000);
+    } catch (err) {
+      showError('Email or password invalid');
+    }
+  }
 
   return (
     <section className="vh-100" style={{ backgroundColor: '#f4f4f9' }}>
       <Container className="py-5 h-100">
+        <Toast ref={toast} />
         <Row className="d-flex justify-content-center align-items-center h-100">
           <Col md={8} lg={6} xl={5}>
             <Card className="shadow-2-strong" style={{ borderRadius: '1rem' }}>
               <Card.Body className="p-5 text-center">
-
                 <h3 className="mb-5">Sign in</h3>
-
-                <Form onSubmit={handleLogin}>
+                <Form className='mb-5' onSubmit={login}>
                   <Form.Group className="form-outline mb-4" controlId="typeEmailX-2">
                     <Form.Control
                       type="email"
@@ -44,10 +72,9 @@ const Login = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      placeholder='email'
+                      placeholder='Email'
                     />
                   </Form.Group>
-
                   <Form.Group className="form-outline mb-4" controlId="typePasswordX-2">
                     <Form.Control
                       type="password"
@@ -55,10 +82,10 @@ const Login = () => {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
-                      placeholder='password'
+                      placeholder='Password'
+                      onKeyDown={handleKeyDown}
                     />
                   </Form.Group>
-
                   <Form.Group className="form-check d-flex justify-content-start mb-4">
                     <Form.Check
                       type="checkbox"
@@ -67,9 +94,6 @@ const Login = () => {
                       label="Remember password"
                     />
                   </Form.Group>
-
-                  {error && <p style={{ color: 'red' }}>{error}</p>}
-
                   <Button
                     className="btn-lg btn-block"
                     variant="primary"
@@ -77,7 +101,6 @@ const Login = () => {
                   >
                     Login
                   </Button>
-                  <a href="/Register" className='btn btn-success'>Register</a>
                 </Form>
               </Card.Body>
             </Card>
@@ -86,6 +109,4 @@ const Login = () => {
       </Container>
     </section>
   );
-};
-
-export default Login;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Card, Button, ListGroup } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import '../assets/css/Service.css'
 import icon_1 from "../img/icon-1.png"
 import icon_2 from "../img/icon-2.webp"

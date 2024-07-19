@@ -13,4 +13,9 @@ class NewsController extends Controller
         $news = News::all();
         return response()->json($news);
     }
+
+    public function details($id)
+    {
+        return News::findOrFail($id);
+    }
 }
