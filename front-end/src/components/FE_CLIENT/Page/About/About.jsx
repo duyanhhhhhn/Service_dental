@@ -2,9 +2,6 @@ import React from 'react';
 import { FaPlusSquare } from 'react-icons/fa';
 import './About.css'; 
 import DentalClinicHero from '../../Layouts/img/DentalClinicHero.jpg';
-import { MdLocationOn, MdAttachEmail } from 'react-icons/md';
-import { BsFillTelephoneOutboundFill } from 'react-icons/bs';
-
 const About = () => {
   return (
     <div className="">

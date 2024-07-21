@@ -12,9 +12,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::prefix('admin')->middleware('admin')->group(function () {
+});
 
-Route::get('/api/producttypes',[ProductTypesController::class,'index']);
-Route::get('/api/products',[ProductsController::class,'index']);
-Route::post('/api/login',[AuthController::class,'login']);
-Route::get('/api/news',[NewsController::class,'news']);
-Route::get('/api/news/{id}',[NewsController::class,'details']);

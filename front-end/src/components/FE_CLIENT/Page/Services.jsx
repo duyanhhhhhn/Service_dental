@@ -9,41 +9,41 @@ const Services = () => {
       id: 1,
       img_src:
         "https://d3t5ai5vcxyqte.cloudfront.net/media/jtklaazjieqhljbboiyao.svg",
-      title: "Điều trị nha",
-      description: "Hãy cứu lấy chiếc răng",
+      title: "Dental Treatment",
+      description: "Save your tooth",
     },
     {
       id: 2,
       img_src:
         "https://d3t5ai5vcxyqte.cloudfront.net/media/xerhpggjxuxmfpsu.svg",
-      title: "Tẩy trắng răng",
-      description: "Bạn muốn có hàm răng trắng hơn?",
+      title: "Teeth Whitening",
+      description: "Want whiter teeth?",
     },
     {
       id: 3,
       img_src:
         "https://d3t5ai5vcxyqte.cloudfront.net/media/xckdqmsbqpdhzlhvwood.svg",
-      title: "Cấy ghép Implant",
-      description: "Làm cho ghép implant của bạn kéo dài cả đời.",
+      title: "Implant Placement",
+      description: "Make your implant last a lifetime.",
     },
     {
       id: 4,
       img_src: "https://d3t5ai5vcxyqte.cloudfront.net/media/ztyabpe.svg",
-      title: "Răng giả",
-      description: "Tìm hiểu loại răng giả phù hợp với bạn.",
+      title: "Dentures",
+      description: "Find the right dentures for you.",
     },
     {
       id: 5,
       img_src:
         "https://d3t5ai5vcxyqte.cloudfront.net/media/pegjpxeakmijzlnklbubfsfun.svg",
-      title: "Lấp đầy lỗ răng",
-      description: "Sửa chữa sự hư hỏng với vật liệu lấp đầy hài hòa.",
+      title: "Cavity Filling",
+      description: "Repair damage with harmonious fillings.",
     },
     {
       id: 6,
       img_src: "https://d3t5ai5vcxyqte.cloudfront.net/media/znrdvnh.svg",
-      title: "Điều trị chỉnh nha/niềng răng",
-      description: "Đừng bao giờ ngại cười.",
+      title: "Orthodontic Treatment/Braces",
+      description: "Never be afraid to smile.",
     },
   ];
 
@@ -51,8 +51,8 @@ const Services = () => {
     <>
       <section id="service" aria-label="service">
         <Container>
-          <p className="section-subtitle text-center">Dịch vụ của chúng tôi</p>
-          <h2 className="h2 section-title text-center">Những gì chúng tôi cung cấp</h2>
+          <p className="section-subtitle text-center">Our Services</p>
+          <h2 className="h2 section-title text-center">What We Offer</h2>
           <ul className="service-list list-unstyled">
             <Row>
               {ServiceData.map((service, index) => (

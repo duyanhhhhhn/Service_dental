@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, Container, NavDropdown, Image } from 'react-bootstrap';
+import { Navbar, Nav, Container, Image } from 'react-bootstrap';
 
 const Header = () => {
   return (
@@ -11,12 +11,11 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" > 
-            <Nav.Link href="/about"  style={{ color: 'white' }}>About us</Nav.Link>
-            <Nav.Link href="/services"  style={{ color: 'white' }}>Services</Nav.Link>
-            <Nav.Link href="/appointment"  style={{ color: 'white' }}>Appointment</Nav.Link>
-            <Nav.Link href="/products" style={{ color: 'white' }}>Products</Nav.Link>
-            <Nav.Link href="/news" style={{ color: 'white' }}>News</Nav.Link>
-            <Nav.Link href="/login"  style={{ color: 'white' }}>Login</Nav.Link>
+            <Nav.Link href="/About"  style={{ color: 'white' }}>About us</Nav.Link>
+            <Nav.Link href="/Services"  style={{ color: 'white' }}>Services</Nav.Link>
+            <Nav.Link href="Appointment"  style={{ color: 'white' }}>Appointment</Nav.Link>
+            <Nav.Link href="Products" style={{ color: 'white' }}>Products</Nav.Link>
+            <Nav.Link href="/News" style={{ color: 'white' }}>News</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

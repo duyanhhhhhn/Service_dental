@@ -9,19 +9,22 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    // Đăng nhập người dùng
-  public function login(Request $request) {
-        $user=User::where('email',$request->email)->where('password',$request->password)->first();
-       if($user) {
-           $request->session()->put('user',$user['email']);
-           return response()->json([session('user')]);
-       }
-       else {
-           dd($request->all());
-           return response()->json('login failed');
-       }
+    public function login(Request $request) {
+      $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
+ 
+    $user = User::where('email', $request->email)->first();
+ 
+    if (! $user || ! Hash::check($request->password, $user->password)) {
+        throw ValidationException::withMessages([
+            'email' => ['The provided credentials are incorrect.'],
+        ]);
     }
-    // Đăng xuất người dùng
+ 
+    return ["accessToken"=>$user->createToken($request->email)->plainTextToken];
+    }
     public  function logout(Request $request) {
         session(['user' => null]);
         return response()->json('logout success');

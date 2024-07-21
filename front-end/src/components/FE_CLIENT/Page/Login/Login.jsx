@@ -16,7 +16,7 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const toast = useRef(null);
-
+  
   useEffect(() => {
     if (Cookies.get('login')) {
       navigate('/admin');
@@ -25,8 +25,8 @@ export default function Login() {
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      event.preventDefault(); // Ngăn chặn hành động mặc định của Enter trong form
-      login(event); // Gọi hàm đăng nhập
+      event.preventDefault(); 
+      login(event); 
     }
   };
 
@@ -41,11 +41,11 @@ export default function Login() {
   async function login(e) {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/login', {
+      const response = await axios.post('/login', {
         email: email,
         password: password
       });
-      Cookies.set('login', response.data.token, { expires: 1 }); // Giả sử API trả về token
+      Cookies.set('login', response.data.accessToken, { expires: new Date(new Date().getTime() + 60 * 60 * 24 * 1000) });
       showSuccess('Login successful');
       setTimeout(() => {
         navigate('/admin');
@@ -63,7 +63,7 @@ export default function Login() {
           <Col md={8} lg={6} xl={5}>
             <Card className="shadow-2-strong" style={{ borderRadius: '1rem' }}>
               <Card.Body className="p-5 text-center">
-                <h3 className="mb-5">Sign in</h3>
+                <h3 className="mb-5">Login</h3>
                 <Form className='mb-5' onSubmit={login}>
                   <Form.Group className="form-outline mb-4" controlId="typeEmailX-2">
                     <Form.Control
@@ -84,14 +84,6 @@ export default function Login() {
                       required
                       placeholder='Password'
                       onKeyDown={handleKeyDown}
-                    />
-                  </Form.Group>
-                  <Form.Group className="form-check d-flex justify-content-start mb-4">
-                    <Form.Check
-                      type="checkbox"
-                      value=""
-                      id="form1Example3"
-                      label="Remember password"
                     />
                   </Form.Group>
                   <Button

@@ -1,13 +1,12 @@
 import React from 'react';
 import './Appointment.css';
-import icon from '../../Layouts/img/Calling.png';
-import SectionTitle from '../SectionTitle/SectionTitle'; // Sửa lại đường dẫn
+import SectionTitle from '../SectionTitle/SectionTitle'; 
 
 
 
 const Appointment = () => {
     return (
-       <div className='container'>
+       <div className='container py-5'>
          <section className='section-bg section-common contact-section text-center'>
                 <SectionTitle
                     title="Contact Us"
@@ -24,30 +23,8 @@ const Appointment = () => {
                 </div>
                 <div className="col-lg-6">
                     <div class="form-group">
-                        <label>E-mail Address</label>
+                        <label>E-mail</label>
                         <input type="email" class="form-control" placeholder="Enter email address..." />
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div class="form-group">
-                        <label>Service</label>
-                        <select class="form-control">
-                            <option>Teeth Whitening</option>
-                            <option>Teeth Whitening</option>
-                            <option>Teeth Whitening</option>
-                            <option>Teeth Whitening</option>
-                        </select>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div class="form-group">
-                        <label>Department</label>
-                        <select class="form-control">
-                            <option>Select Department</option>
-                            <option>Select Department</option>
-                            <option>Select Department</option>
-                            <option>Select Department</option>
-                        </select>
                     </div>
                 </div>
                 <div className="col-lg-12">
@@ -58,18 +35,7 @@ const Appointment = () => {
                 </div>
 
                 <div className="col-lg-6">
-                    <button type="submit" class="btn appointment-btn">Book an appointment</button>
-                </div>
-                <div className="col-lg-6">
-                    <div className="appointment-call">
-                        <div className='icon'>
-                        <img src={icon} alt="icon" />
-                        </div>
-                        <div className='call-text'>
-                            <p>Dental 24H Emergency</p>
-                            <h6>03 482 394 123</h6>
-                        </div>
-                    </div>
+                    <button type="submit" class="btn appointment-btn items-center">Book an appointment</button>
                 </div>
             </div>
         </form>
