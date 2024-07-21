@@ -2,46 +2,47 @@ import React from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import '../assets/css/Footer.css'
 import { FaSearch } from "react-icons/fa";
+
 const Footer = () => {
   return (
-    <div style={{backgroundColor:"#2E6368"}} className="footer">
+    <div style={{ backgroundColor: "#2E6368" }} className="footer">
       <Container>
         <Row className="justify-content-center">
           <Col lg={3}>
-            <h1 className="text-2xl font-Poppins">Hệ thống nha khoa</h1>
-            <p> 31 Nguyễn Đình Chiểu, P.Đa Kao, Q.1</p>
-            <p>101 Sương Nguyệt Ánh, P.Bến Thành, Q.1</p>
-            <p>345 Lê Văn Sỹ, P.13, Q.3</p>
-            <p>348-350 Nguyễn Trãi, P.8, Q.5</p>
-            <p>396 Đường 3 Tháng 2, P.12, Q.10</p>
-          </Col>
-           <Col lg={3}>
-            <p>Trả góp 0% - Thanh toán linh hoạt</p>
-            <p>Hợp tác chiến lược</p>
-            <p>Bảo hiểm liên kết</p>
-            <p>Hệ thống phòng khám</p>
-            <p>Tuyển dụng</p>
+            <h1 className="text-2xl font-Poppins">Dental System</h1>
+            <p> 31 Nguyen Dinh Chieu, Da Kao Ward, District 1</p>
+            <p>101 Suong Nguyet Anh, Ben Thanh Ward, District 1</p>
+            <p>345 Le Van Sy, Ward 13, District 3</p>
+            <p>348-350 Nguyen Trai, Ward 8, District 5</p>
+            <p>396 3 Thang 2 Street, Ward 12, District 10</p>
           </Col>
           <Col lg={3}>
-            <p>Nhà máy răng sứ</p>
-            <p>Tiêu chuẩn chất lượng</p>
-            <p>Niềng răng thẩm mỹ</p>
-            <p>Trồng răng Implant</p>
-            <p>Răng sứ thẩm mỹ</p>
+            <p>0% Installment - Flexible Payment</p>
+            <p>Strategic Partnerships</p>
+            <p>Insurance Links</p>
+            <p>Clinic System</p>
+            <p>Careers</p>
           </Col>
           <Col lg={3}>
-            <h1 className="text-2xl font-Poppins">Kết nối với chúng tôi</h1>
+            <p>Dental Lab</p>
+            <p>Quality Standards</p>
+            <p>Cosmetic Braces</p>
+            <p>Implant Dentures</p>
+            <p>Cosmetic Crowns</p>
+          </Col>
+          <Col lg={3}>
+            <h1 className="text-2xl font-Poppins">Connect with Us</h1>
             <Form className="d-flex">
               <Form.Control
                 type="email"
-                placeholder="Nhập email của bạn"
+                placeholder="Enter your email"
                 className="border-primary border px-4 py-3 rounded-l-md focus:outline-none"
               />
               <Button
                 variant="primary"
                 className="border-primary border border-l-0 rounded-r-md px-4 py-3 bg-primary text-white hover:bg-transparent hover:text-primary transition"
               >
-             <FaSearch/>
+                <FaSearch />
               </Button>
             </Form>
           </Col>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, Container, NavDropdown, Image } from 'react-bootstrap';
+import { Navbar, Nav, Container, Image } from 'react-bootstrap';
 
 const Header = () => {
   return (
@@ -16,7 +16,6 @@ const Header = () => {
             <Nav.Link href="Appointment"  style={{ color: 'white' }}>Appointment</Nav.Link>
             <Nav.Link href="Products" style={{ color: 'white' }}>Products</Nav.Link>
             <Nav.Link href="/News" style={{ color: 'white' }}>News</Nav.Link>
-            <Nav.Link href="/Cart" style={{ color: 'white' }}>Cart</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

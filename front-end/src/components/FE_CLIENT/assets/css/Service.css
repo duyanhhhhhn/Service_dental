@@ -17,9 +17,6 @@ h1 {
 .card img {
     width: 100%;
     object-fit: contain;
-    /* Điều chỉnh hình ảnh để phù hợp với khung *
-    aspect-ratio: ;
-    /* Thiết lập tỉ lệ khung hình cho hình ảnh */
 }
 
 .card-title {

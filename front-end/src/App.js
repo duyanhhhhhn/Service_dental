@@ -17,6 +17,7 @@ import AdminProducts from './components/FE_Admin/AD_Products/AdminProducts';
 import AdminNews from './components/FE_Admin/AD_News/AdminNews';
 import PrivateRoute from './PrivateRoute';
 import AdminHome from './components/FE_Admin/Components/AdminHome';
+import Login from './components/FE_CLIENT/Page/Login/Login';
 
 axios.defaults.baseURL = 'http://127.0.0.1:8000/api';
 
