@@ -13,4 +13,5 @@ class ProductTypesController extends Controller
         $types = ProductType:: all();
         return response()->json($types);
     }
+
 }

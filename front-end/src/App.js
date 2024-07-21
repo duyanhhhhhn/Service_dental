@@ -5,6 +5,7 @@ import Footer from "./components/FE_CLIENT/Layouts/Footer";
 import Home from "./components/FE_CLIENT/Page/Home";
 import Header from './components/FE_CLIENT/Layouts/Navbar';
 import About from './components/FE_CLIENT/Page/About/About';
+import Login from './components/FE_CLIENT/Page/Login/Login';
 import Service from './components/FE_CLIENT/Page/Service';
 import News from './components/FE_CLIENT/Page/News/News';
 import axios from 'axios';
@@ -16,6 +17,7 @@ import AdminNews from './components/FE_Admin/AD_News/AdminProducts';
 import 'primereact/resources/themes/saga-blue/theme.css'; 
 import 'primereact/resources/primereact.min.css'; 
 import 'primeicons/primeicons.css';
+import Test from './components/FE_Admin/AD_News/Test';
 axios.defaults.baseURL ='http://127.0.0.1:8000/api'
 const App = () => {
     return (<>
@@ -29,6 +31,7 @@ const App = () => {
             <Route path='/news' element={<News />} />
             <Route path='/news/:id' element={<Details />} />
             <Route path='/products'element={<Products/>} />
+            <Route path='/test' element={<Test />} />
             {/* <Route path="/" element={<Home />} />
             <Route path='/About' element={<About/>}/>
             <Route path='/Services' element={<Service />} />
