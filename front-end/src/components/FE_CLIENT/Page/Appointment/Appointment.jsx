@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Appointment.css';
-import icon from '../../Layouts/img/Calling.png';
-import SectionTitle from '../SectionTitle/SectionTitle'; // Sửa lại đường dẫn
+import SectionTitle from '../SectionTitle/SectionTitle'; 
 
 const Appointment = () => {
     const [formData, setFormData] = useState({
@@ -40,8 +39,8 @@ const Appointment = () => {
     };
 
     return (
-        <div className='container'>
-            <section className='section-bg section-common contact-section text-center'>
+       <div className='container py-5'>
+         <section className='section-bg section-common contact-section text-center'>
                 <SectionTitle
                     title="Contact Us"
                     description="Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
@@ -51,14 +50,13 @@ const Appointment = () => {
                 <div className="col-lg-12">
                     <div className="form-group">
                         <label>Name</label>
-                        <input 
-                            type="text" 
-                            className="form-control" 
-                            name="name" 
-                            placeholder="Enter your name..." 
-                            value={formData.name} 
-                            onChange={handleChange} 
-                        />
+                        <input type="email" class="form-control" placeholder="Enter your name..." />
+                    </div>
+                </div>
+                <div className="col-lg-6">
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input type="email" class="form-control" placeholder="Enter email address..." />
                     </div>
                 </div>
                 <div className="col-lg-12">
@@ -74,32 +72,9 @@ const Appointment = () => {
                         />
                     </div>
                 </div>
-                <div className="col-lg-12">
-                    <div className="form-group">
-                        <label>Phone Number</label>
-                        <input 
-                            type="text" 
-                            className="form-control" 
-                            name="phone_number" 
-                            placeholder="Enter phone number..." 
-                            value={formData.phone_number} 
-                            onChange={handleChange} 
-                        />
-                    </div>
-                </div>
-                <div className="col-lg-6 mb-4">
-                    <button type="submit" className="btn appointment-btn">Book an appointment</button>
-                </div>
-                <div className="col-lg-6 mb-4">
-                    <div className="appointment-call">
-                        <div className='icon'>
-                            <img src={icon} alt="icon" />
-                        </div>
-                        <div className='call-text'>
-                            <p>Dental 24H Emergency</p>
-                            <h6>01 234 567 89</h6>
-                        </div>
-                    </div>
+
+                <div className="col-lg-6">
+                    <button type="submit" class="btn appointment-btn items-center">Book an appointment</button>
                 </div>
             </form>
         </div>

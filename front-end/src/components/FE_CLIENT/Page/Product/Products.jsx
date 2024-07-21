@@ -1,14 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Image, Container, Row, Form, Col, Card, Button } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch} from "@fortawesome/free-solid-svg-icons";
+import { FaSearch } from "react-icons/fa";
 
 const Products = () => {
     const [products, setProducts] = useState([]);
     
     useEffect(() => {
-        axios.get('products').then(resp => setProducts(resp.data));
+        axios.get('/products').then(resp => setProducts(resp.data));
     }, []);
 
     const [keyword, setKeyword] = useState("");
@@ -23,7 +22,7 @@ const Products = () => {
             <Form onSubmit={handleSearch}>
                 <Form.Control type="text " placeholder="Nhập vào thông tin tìm kiếm ... " onChange={(e) => setKeyword(e.target.value)}/>
                 <Button style={{margin : "15px 15px 15px 0"}} onClick={handleSearch}>
-                <FontAwesomeIcon icon={faSearch} /> Tìm kiếm
+                <FaSearch/> Tìm kiếm
                 </Button>
              </Form>
             <Row>
@@ -38,15 +37,14 @@ const Products = () => {
                                     <br />
                                     <span className="text-gray-500">{item.description}</span>
                                 </Card.Text>
-                                <Button  className="btn btn-primary btn-block">
-                                  Add to cart
-                                </Button>
                             </Card.Body>
                         </Card>
                     </Col>
                 ))}
             </Row>
         </Container>
+        
+        
     );
 }
 

@@ -20,3 +20,6 @@ Route::post('/api/login',[AuthController::class,'login']);
 Route::get('/api/news',[NewsController::class,'news']);
 Route::get('/api/news/{id}',[NewsController::class,'details']);
 Route::post('/api/appointments',[AppointmentController::class,'store']);
+Route::prefix('admin')->middleware('admin')->group(function () {
+});
+
