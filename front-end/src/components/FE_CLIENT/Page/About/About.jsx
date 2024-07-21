@@ -24,11 +24,11 @@ const About = () => {
       
       <div className="home-features container mt-̀5">
         <div className="slogan-section text-center">
-          <h1><span>About Australian Dentists Clinic</span></h1>
+          <h1><span>About Us Dentists Clinic</span></h1>
         </div>
         <p>
           We are committed to offering quality dental care for the whole family. Whether you are in need of cosmetic dentistry, restorative work, or a <br />
-          <a href="https://dentistsclinic.com.au/locations/melbourne-cbd/dentist-checkup-special.html">regular dental checkup</a>, you are in good hands with our friendly, skilled dental technicians and qualified dentists.
+          <a>regular dental checkup</a>, you are in good hands with our friendly, skilled dental technicians and qualified dentists.
         </p>
         <br />
       </div>

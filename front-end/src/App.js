@@ -6,7 +6,6 @@ import Home from "./components/FE_CLIENT/Page/Home";
 import Header from './components/FE_CLIENT/Layouts/Navbar';
 import About from './components/FE_CLIENT/Page/About/About';
 import Service from './components/FE_CLIENT/Page/Service';
-import Login from './components/FE_CLIENT/Page/Login/Login';
 import News from './components/FE_CLIENT/Page/News/News';
 import axios from 'axios';
 import Products from './components/FE_CLIENT/Page/Product/Products';
