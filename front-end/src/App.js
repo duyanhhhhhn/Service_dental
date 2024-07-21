@@ -16,7 +16,7 @@ import AdminNews from './components/FE_Admin/AD_News/AdminProducts';
 import 'primereact/resources/themes/saga-blue/theme.css'; 
 import 'primereact/resources/primereact.min.css'; 
 import 'primeicons/primeicons.css';
-axios.defaults.baseURL ='http://127.0.0.1:8000/api'
+axios.defaults.baseURL ='http://127.0.0.1:8000'
 const App = () => {
     return (<>
         <Header/>
@@ -24,7 +24,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path='/about' element={<About/>}/>
             <Route path='/services' element={<Service />} />
-            <Route path='/login' element={<Login />} />
+            {/* <Route path='/login' element={<Login />} /> */}
             <Route path='/appointment' element={<Appointment /> } />
             <Route path='/news' element={<News />} />
             <Route path='/news/:id' element={<Details />} />

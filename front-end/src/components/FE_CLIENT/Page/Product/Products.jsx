@@ -10,7 +10,6 @@ const Products = () => {
     useEffect(() => {
         axios.get('products').then(resp => setProducts(resp.data));
     }, []);
-<<<<<<< HEAD
 
     const [keyword, setKeyword] = useState("");
     const handleSearch = (e) => {
@@ -19,8 +18,6 @@ const Products = () => {
       setProducts(result)
     }
 
-=======
->>>>>>> 8ad79f271ca83d3a80a8d99262781a881e53e8d7
     return (
         <Container>
             <Form onSubmit={handleSearch}>

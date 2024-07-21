@@ -29,7 +29,15 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'phone' => 'required|string|max:20',
+        ]);
+
+        $appointment = Appointment::create($validatedData);
+
+        return response()->json(['success' => 'Appointment booked successfully', 'appointment' => $appointment], 201);
     }
 
     /**
