@@ -15,13 +15,8 @@ const Header = () => {
             <Nav.Link href="/Services"  style={{ color: 'white' }}>Services</Nav.Link>
             <Nav.Link href="Appointment"  style={{ color: 'white' }}>Appointment</Nav.Link>
             <Nav.Link href="Products" style={{ color: 'white' }}>Products</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown" style={{color: '#fff'}}>
-              <NavDropdown.Item href="/News">News</NavDropdown.Item>
-              <NavDropdown.Item href="/Cart">
-              Cart
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="Login"  style={{ color: 'white' }}>Login</Nav.Link>
+            <Nav.Link href="/News" style={{ color: 'white' }}>News</Nav.Link>
+            <Nav.Link href="/Cart" style={{ color: 'white' }}>Cart</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

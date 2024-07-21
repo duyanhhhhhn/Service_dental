@@ -6,7 +6,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
     
     useEffect(() => {
-        axios.get('products').then(resp => setProducts(resp.data));
+        axios.get('/products').then(resp => setProducts(resp.data));
     }, []);
     return (
         <Container>
