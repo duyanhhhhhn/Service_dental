@@ -18,6 +18,7 @@ Route::get('/producttypes',[ProductTypesController::class,'index']);
 Route::get('/products',[ProductsController::class,'index']);
 Route::post('/login',[AuthController::class,'login']);
 Route::get('/news',[NewsController::class,'news']);
+Route::post('/products',[ProductsController::class,'create']);
 
 Route::post('/news',[NewsController::class,'newspost']);
 // phuong thuc post , lam post new, 
