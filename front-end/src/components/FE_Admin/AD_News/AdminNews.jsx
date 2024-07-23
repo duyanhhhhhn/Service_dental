@@ -48,7 +48,7 @@ export default function AdminNews() {
      const header = (
         <div className="flex flex-wrap align-items-center justify-content-between gap-2">
             <span className="text-xl text-900 font-bold">News</span>
-            <Button style={{marginLeft:'100px'}}>Add+</Button>
+            <Button style={{marginLeft:'100px'}} >Add+</Button>
         </div>
     );
 

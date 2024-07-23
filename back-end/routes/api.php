@@ -16,5 +16,15 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/producttypes',[ProductTypesController::class,'index']);
 Route::get('/products',[ProductsController::class,'index']);
+Route::post('/products', [ProductsController::class, 'create']);
+
+
+// api new
+Route::post('news/{id}',[NewsController::class,'addnews']);
+Route::put('news/{id}',[NewsController::class,'updatenews']);
+Route::delete('news/{id}',[NewsController::class,'deletenews']);
+
+    
+
 Route::post('/login',[AuthController::class,'login']);
 Route::get('/news',[NewsController::class,'news']);

@@ -41,7 +41,7 @@ export default function AdminHome() {
   // async function  LoadAppointment() {
   //   const result=await axios.get(`/appointment`);
   //       setBlog(result.data);
-  // }
+  // }  
   const handleOnclickAppointment=()=> {
     navigate('/admin/appointment')
   }

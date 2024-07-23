@@ -14,7 +14,7 @@ class Product extends Model
         'description',
         'price',
         'avg_rating',
-        'tpye_id',
+        'type_id',
         'thumbnail',
         'status',
         
@@ -22,6 +22,6 @@ class Product extends Model
 
     public function productType()
     {
-        return $this->belongsTo(ProductType::class);
+        return $this->belongsTo(ProductType::class, 'type_id');
     }
 }
