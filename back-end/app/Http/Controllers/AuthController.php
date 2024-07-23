@@ -25,8 +25,4 @@ class AuthController extends Controller
  
     return ["accessToken"=>$user->createToken($request->email)->plainTextToken];
     }
-    public  function logout(Request $request) {
-        session(['user' => null]);
-        return response()->json('logout success');
-    }
 }

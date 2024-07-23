@@ -14,7 +14,7 @@ class Product extends Model
         'description',
         'price',
         'avg_rating',
-        'tpye_id',
+        'type_id',
         'thumbnail',
         'status',
         

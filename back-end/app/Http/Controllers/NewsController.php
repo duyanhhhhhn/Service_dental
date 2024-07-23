@@ -22,11 +22,7 @@ class NewsController extends Controller
 
     public function newspost(Request $request)// phương thức post
     {
-        // Lấy dữ liệu từ request
         $data = $request->all();
-        // Xử lý dữ liệu, ví dụ lưu vào database
-        // ModelName::create($data);
-        // Trả về JSON response
         return response()->json([
             'message' => 'This is a POST request',
             'data' => $data

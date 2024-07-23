@@ -14,12 +14,5 @@ Route::get('/sanctum/csrf-cookie', function () {
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/api/producttypes',[ProductTypesController::class,'index']);
-Route::get('/api/products',[ProductsController::class,'index']);
-Route::post('/api/login',[AuthController::class,'login']);
-Route::get('/api/news',[NewsController::class,'news']);
-Route::get('/api/news/{id}',[NewsController::class,'details']);
-Route::post('/api/appointments',[AppointmentController::class,'store']);
-Route::prefix('admin')->middleware('admin')->group(function () {
-});
+
 

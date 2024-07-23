@@ -1,80 +1,108 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import './Appointment.css';
 import SectionTitle from '../SectionTitle/SectionTitle'; 
+import Swal from 'sweetalert2';
+import URL from '../../../../api/api';
 
 const Appointment = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone_number: ''
-    });
+    const [name, setName] = useState('');
+    const [address, setAddress] = useState('');
+    const [phone, setPhone] = useState('');
 
-    useEffect(() => {
-        const getCsrfToken = async () => {
-            try {
-                // Fetch CSRF token
-                await axios.get('/sanctum/csrf-cookie');
-            } catch (error) {
-                console.error('Error fetching CSRF token:', error);
-            }
-        };
-
-        getCsrfToken();
-    }, []);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+    const resetForm = () => {
+        setName('');
+        setAddress('');
+        setPhone('');
     };
 
-    const handleSubmit = async (e) => {
+    const confirmAppointment = async (e) => {
         e.preventDefault();
+        if (!name || !address || !phone) { 
+            Swal.fire({
+                icon: 'warning',
+                title: 'Warning',
+                text: 'All fields are required',
+            });
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('address', address);
+        formData.append('phone_number', phone);
+        formData.append('status', 1); 
+
         try {
-            const response = await axios.post('/api/appointments', formData); // Sử dụng '/api/appointments'
-            alert(response.data.success);
+            await axios.post(`${URL}/appointment`, formData);
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Appointment added successfully',
+            });
+            resetForm();
         } catch (error) {
-            console.error('There was an error booking the appointment!', error);
+            let errorMessage = 'Something went wrong!';
+            if (error.response && error.response.data && error.response.data.message) {
+                errorMessage = error.response.data.message;
+            } else if (error.message) {
+                errorMessage = error.message;
+            }
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: errorMessage,
+            });
         }
     };
 
     return (
-       <div className='container py-5'>
-         <section className='section-bg section-common contact-section text-center'>
+        <div className='container py-5'>
+            <section className='section-bg section-common contact-section text-center'>
                 <SectionTitle
                     title="Contact Us"
                     description="Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
                 />
             </section>
-            <form onSubmit={handleSubmit}>
+            <form  onSubmit={confirmAppointment}>
                 <div className="col-lg-12">
                     <div className="form-group">
                         <label>Name</label>
-                        <input type="email" class="form-control" placeholder="Enter your name..." />
+                        <input 
+                            type="text" 
+                            className="form-control" 
+                            placeholder="Enter your name..." 
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
                     </div>
                 </div>
                 <div className="col-lg-6">
-                    <div class="form-group">
-                        <label>E-mail</label>
-                        <input type="email" class="form-control" placeholder="Enter email address..." />
+                    <div className="form-group">
+                        <label>Address</label>
+                        <input 
+                            type="text" 
+                            className="form-control" 
+                            placeholder="Enter address..." 
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
+                        />
                     </div>
                 </div>
                 <div className="col-lg-12">
                     <div className="form-group">
-                        <label>Email Address</label>
+                        <label>Phone Number</label>
                         <input 
-                            type="email" 
+                            type="text" 
                             className="form-control" 
-                            name="email" 
-                            placeholder="Enter email address..." 
-                            value={formData.email} 
-                            onChange={handleChange} 
+                            placeholder="Enter phone number..." 
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
                         />
                     </div>
                 </div>
-
                 <div className="col-lg-6">
-                    <button type="submit" class="btn appointment-btn items-center">Book an appointment</button>
+                    <button type="submit" className="btn appointment-btn items-center">Book an appointment</button>
                 </div>
             </form>
         </div>
