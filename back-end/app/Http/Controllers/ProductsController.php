@@ -13,9 +13,6 @@ class ProductsController extends Controller
         $products = Product::all();
         return response()->json($products);
     }
-
-   
-
     public function create(Request $request)
     {
         $validatedData = $request->validate([
@@ -34,22 +31,21 @@ class ProductsController extends Controller
             'thumbnail' => $validatedData['thumbnail'],
             'status' => $validatedData['status'],
         ]);
-
+        $product->save();
         return response()->json([
             'message' => 'Thêm thành công',
             'product' => $product
         ]);
-
     }
-
-
-    public function update(Request $request, $id)
+       public  function deleteproducts(Request $request, $id)
     {
-        $user = Product::findOrFail($id);
-        $data = $request->all();
-        $user->update($data);
-        return redirect("/products");
+        $product = Product::find($id);
+        $product->delete();
+        return response()->json('delete success');
     }
-
-   
+    public function edit(Request $request, $id ) {
+        $product = Product::find($id);
+        $product->update($request->all());
+        return response()->json('success updated');
+    }
 }
