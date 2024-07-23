@@ -23,9 +23,9 @@ const News = () => {
                 <Image src={item.thumbnail} alt="product" fluid className="card-img-top"  />
                 <Card.Body>
                   <Card.Title>
-                    <Link to={item.link} className="news-link">
+                    <p >
                       {item.title}
-                    </Link>
+                    </p>
                   </Card.Title>
                   <Card.Text>{item.description}</Card.Text>
                 </Card.Body>

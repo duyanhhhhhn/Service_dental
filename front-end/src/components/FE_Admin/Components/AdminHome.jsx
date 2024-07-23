@@ -1,17 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Col, Row } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
-
 import { Card } from 'react-bootstrap'
 import Cookies from 'js-cookie';
-import { BsFillPersonFill,BsFillTrophyFill,BsChatSquareTextFill,BsChevronDoubleRight} from "react-icons/bs";
+import { BsFillPersonFill,BsFillTrophyFill,BsChatSquareTextFill} from "react-icons/bs";
 import CardItem from './Carditem'
 import '../Components/AdminHome.scss'
 import AdminNav from './AdminNav';
 import axios from 'axios';
 export default function AdminHome() {
   const navigate = useNavigate();
-  const toast=useRef()
     useEffect(() => {
       document.title = 'Dental-Admin';
     }, []);
@@ -22,26 +20,16 @@ export default function AdminHome() {
   })
   const [products, setProducts] = useState();
   const [news, setNews] = useState();
-  const [showNav,setShowNav]=useState(false);
-    useEffect(()=>{
-    (async()=> await LoadProducts())();
-    (async()=> await LoadNews())();
-    // (async()=> await LoadAppointment())();
-  },[showNav])
-
- async function  LoadProducts() {
-    const result=await axios.get(`/products`);
-    setProducts(result.data);
-  }
-
-  async function LoadNews() {
-    const result= await axios.get(`/news`);
-    setNews(result.data)
-  }
-  // async function  LoadAppointment() {
-  //   const result=await axios.get(`/appointment`);
-  //       setBlog(result.data);
-  // }
+  const [appointment, setAppointment] = useState();
+    useEffect(() => {
+        axios.get('/products').then(resp => setProducts(resp.data));
+    }, []);
+    useEffect(() => {
+        axios.get('/news').then(resp => setNews(resp.data));
+    }, []);
+  useEffect(() => {
+        axios.get('/appointment').then(resp => setAppointment(resp.data));
+    }, []);
   const handleOnclickAppointment=()=> {
     navigate('/admin/appointment')
   }
@@ -57,15 +45,12 @@ export default function AdminHome() {
         <Col lg={2} className='padding-0 d-xl-flex d-lg-none d-xs-none d-sm-none xs-none'>
           <AdminNav page={'Admin'} />
         </Col>
-        <Col   className='bg-content d-xl-10 d-md-12 d-xs-12 '>
+        <Col  className='bg-content d-xl-10 d-md-12 d-xs-12 '>
           <Row>
             <Container >
               <Card className='bg-white card-ad-home ' style={{ width: '100%' }}>
                 <section className='header-ad-containt d-flex justify-content-between align-items-center' >
                   <section>
-                    <div  className='show-menu  d-lg-block d-xl-none' onClick={()=>{setShowNav(true)}} >
-                      {/* <BsChevronDoubleRight /> */}
-                    </div>
                   </section>
                   <span className='d-inline-block'>
                     <h1> ADMIN</h1>
@@ -76,12 +61,12 @@ export default function AdminHome() {
               </Card>
             </Container >
           </Row>
-          <Row  >
+          <Row >
             <Card className=' bg-white card-ad-body mb-5'>
               <Row>
                 <Col lg={4} md={4} className="mb-4 mt-5"  >
                   <section onClick={handleOnclickAppointment} className='mb-4 d-flex justify-content-center'>
-                  <CardItem title={'Appointment'} Icon={BsFillPersonFill} cardColor={'card-color1'} />
+                  <CardItem title={'Appointment'} Icon={BsFillPersonFill} content={appointment?appointment.length +' appointment':'0 appointment'} cardColor={'card-color1'} />
                   </section>
                 </Col>
                 <Col lg={4} md={4} className="mb-4 mt-5" >

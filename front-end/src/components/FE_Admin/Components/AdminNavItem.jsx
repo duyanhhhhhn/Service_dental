@@ -1,20 +1,8 @@
 
 import React,{useEffect, useState} from 'react'
-import {BsChevronCompactDown,BsChevronCompactUp} from 'react-icons/bs';
-import { Link,Navigate } from 'react-router-dom';
-// import styled from 'styled-components';
+import {BsChevronCompactUp} from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 import AOS from "aos";
-// import "aos/dist/aos.css";
-// const SpanDown=styled.span`
-//   ${props=>props.show===true&&`{
-//     display:none!important;
-//   }`}
-// `
-// const SpanUp=styled.span`
-// ${props=>props.show===false&&`{
-//   display:none!important;
-// }`}
-// `
 export default function AdminNavItem({ content, Item_icon, child, page }) {
     const [showChild,setShowChild]=useState(false);
     useEffect(() => {
@@ -28,13 +16,7 @@ export default function AdminNavItem({ content, Item_icon, child, page }) {
         <span className='AD-nav-title'>
           {content}
         </span>
-        {/* <SpanDown show={showChild}>
-        <BsChevronCompactDown className='AD-item-down_up ' />
-        </SpanDown>
-        <SpanUp show={showChild}> */}
-
         <BsChevronCompactUp className='AD-item-down_up'/>
-        {/* </SpanUp> */}
         {child&&showChild&&(
         <section  className='AD-nav-children '>
       {child&&showChild&&(
