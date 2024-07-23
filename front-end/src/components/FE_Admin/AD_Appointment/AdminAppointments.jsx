@@ -8,31 +8,25 @@ import AdminNav from '../Components/AdminNav';
 import ModalAddNews from '../Components/ModalAddNews';
 import Swal from 'sweetalert2';
 import URL from '../../../api/api';
+import { Toast } from 'primereact/toast';
 
-export default function AdminNews() {
-    const [news, setNews] = useState([]);
+export default function AdminAppointment() {
+    const [appointment, setAppointment] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const toast = useRef(null);
 
     useEffect(() => {
-        (async () => await LoadNews())();
+        (async () => await LoadAppointment())();
     }, []);
 
-    async function LoadNews() {
+    async function LoadAppointment() {
         try {
-            const result = await axios.get(`/news`);
-            setNews(result.data);
+            const result = await axios.get(`/appointment`);
+            setAppointment(result.data);
         } catch (err) {
             showError(err.message);
         }
     }
-
-    const imageBodyTemplate = (rowData) => {
-        return <img src={rowData.thumbnail} alt={rowData.name} style={{ height: '50px', width: '50px' }} />;
-    };
-    const editNews = (rowData) => {
-        console.log('Edit News', rowData);
-    };
 
     const showError = (e) => {
         if (toast.current) {
@@ -57,28 +51,20 @@ export default function AdminNews() {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                deleteNews(item);
+                deleteAppointment(item);
             }
         });
     };
 
-    async function deleteNews(item) {
+    async function deleteAppointment(item) {
         try {
-            await axios.delete(`${URL}/news/${item.id}`);
-            setNews(news.filter(p => p.id !== item.id));
+            await axios.delete(`${URL}/appointment/${item.id}`);
+            setAppointment(appointment.filter(p => p.id !== item.id));
             showSuccess('Delete successful');
         } catch (err) {
             showError(err.message);
         }
     }
-
-    const Edit = (rowData) => {
-        return (
-            <React.Fragment>
-                <Button icon="pi pi-pencil" className="p-button-rounded p-button-success mr-2" onClick={() => editNews(rowData)} />
-            </React.Fragment>
-        );
-    };
 
     const Delete = (rowData) => {
         return (
@@ -88,43 +74,28 @@ export default function AdminNews() {
         );
     };
 
-    const contentBodyTemplate = (rowData) => {
-        const maxLength = 30;
-        const content = rowData.content;
-        if (content.length > maxLength) {
-            return content.substring(0, maxLength) + '...';
-        }
-        return content;
-    };
-
     const header = (
         <div className="flex flex-wrap align-items-center justify-content-between gap-2">
-            <span className="text-xl text-900 font-bold">News</span>
-<<<<<<< HEAD
-            <Button style={{marginLeft:'100px'}} >Add+</Button>
-=======
-            <Button style={{ marginLeft: '100px' }} onClick={() => setShowModal(true)}>Add+</Button>
->>>>>>> d79d0ce9495a374d11e646a80105008611008da2
+            <span className="text-xl text-900 font-bold">Appointment</span>
         </div>
     );
 
-    const footer = `In total there are ${news ? news.length : 0} News.`;
+    const footer = `In total there are ${appointment ? appointment.length : 0} Appointments.`;
 
     return (
         <Container fluid className='wrapper'>
+            <Toast ref={toast} />
             <Row>
                 <Col lg={2} className='padding-0 d-xl-flex d-lg-none d-xs-none d-sm-none xs-none'>
-                    <AdminNav page={'News'} />
+                    <AdminNav page={'Appointment'} />
                 </Col>
-                <ModalAddNews show={showModal} setShowModal={setShowModal} Load={LoadNews}/>
+                <ModalAddNews show={showModal} setShowModal={setShowModal} Load={LoadAppointment} />
                 <Col className='bg-content d-xl-10 d-md-12 d-xs-12'>
                     <div className="card">
-                        <DataTable value={news} header={header} footer={footer} tableStyle={{ minWidth: '60rem' }}>
-                            <Column field="title" header="Name"></Column>
-                            <Column field="thumbnail" header="Image" body={imageBodyTemplate}></Column>
-                            <Column field="description" header="Description"></Column>
-                            <Column field="content" header="Content" body={contentBodyTemplate}></Column>
-                            <Column header="Edit" body={Edit}></Column>
+                        <DataTable value={appointment} header={header} footer={footer} tableStyle={{ minWidth: '60rem' }}>
+                            <Column field="name" header="Name"></Column>
+                            <Column field="address" header="email"></Column>
+                            <Column field="phone_number" header="phone"></Column>
                             <Column header="Delete" body={Delete}></Column>
                         </DataTable>
                     </div>

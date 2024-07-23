@@ -5,7 +5,6 @@ import Footer from "./components/FE_CLIENT/Layouts/Footer";
 import Home from "./components/FE_CLIENT/Page/Home";
 import Header from './components/FE_CLIENT/Layouts/Navbar';
 import About from './components/FE_CLIENT/Page/About/About';
-import Login from './components/FE_CLIENT/Page/Login/Login';
 import Service from './components/FE_CLIENT/Page/Service';
 import News from './components/FE_CLIENT/Page/News/News';
 import axios from 'axios';
@@ -18,8 +17,9 @@ import AdminProducts from './components/FE_Admin/AD_Products/AdminProducts';
 import AdminNews from './components/FE_Admin/AD_News/AdminNews';
 import PrivateRoute from './PrivateRoute';
 import AdminHome from './components/FE_Admin/Components/AdminHome';
-// import  Login from './components/FE_CLIENT/Page/Login/Login';
-
+import Details from './components/FE_CLIENT/Page/News/Details';
+import Login from './components/FE_CLIENT/Page/Login/Login';
+import AdminAppointment from './components/FE_Admin/AD_Appointment/AdminAppointments';
 axios.defaults.baseURL = 'http://127.0.0.1:8000/api';
 
 const App = () => {
@@ -29,7 +29,6 @@ const App = () => {
     <>
         {location.pathname ==="/" ||location.pathname ==="/About" || location.pathname === "/Services"  || location.pathname === "/News"  || location.pathname==='/Products' || location.pathname==='/Appointment'? <Header/> : null}
       
-      {/* <Header /> */}
       <Routes>
         {/* Client */}
         <Route path="/" element={<Home />} />
@@ -38,14 +37,14 @@ const App = () => {
         <Route path="/News" element={<News />} />
         <Route path="/Products" element={<Products />} />
         <Route path="/Appointment" element={<Appointment />} />
+        <Route path='/News/:id'element={<Details/>} />
         {/* Admin */}
-        {/* <Route path="/login" element={<Login />} /> */}
-              <Route path="/admin/*" element={
-                  <><PrivateRoute /> </>
-               }>
+        <Route path="/login" element={<Login />} />
+          <Route path="/admin/*" element={<PrivateRoute /> }>
           <Route index element={<AdminHome/> } />
           <Route path="products" element={<AdminProducts />} />
           <Route path="news" element={<AdminNews />} />
+          <Route path="appointment" element={<AdminAppointment />} />
         </Route>
       </Routes>
         {location.pathname ==="/" ||location.pathname ==="/About" || location.pathname === "/Services"  || location.pathname === "/News"  || location.pathname==='/Products' || location.pathname==='/Appointment'?  <Footer /> : null}
