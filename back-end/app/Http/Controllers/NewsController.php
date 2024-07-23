@@ -28,6 +28,13 @@ class NewsController extends Controller
             'data' => $data
         ]);
     }
+
+    public function deleteNews(Request $request, $id)
+    {
+        $news = News::find($id);
+        $news->delete();
+        return response()->json('delete success');
+    }
 }
 
 

@@ -24,6 +24,7 @@ Route::post('/login',[AuthController::class,'login']);
 //news
 Route::get('/news',[NewsController::class,'news']);
 Route::post('/news',[NewsController::class,'newspost']);
+Route::delete('/news/{id}', [NewsController::class, 'deleteNews']);
 Route::get('/news/{id}',[NewsController::class,'details']);
 // appointment
 Route::get('/appointment',[AppointmentsController::class,'index']);
