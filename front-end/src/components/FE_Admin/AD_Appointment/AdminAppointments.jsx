@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
@@ -15,18 +15,18 @@ export default function AdminAppointment() {
     const [showModal, setShowModal] = useState(false);
     const toast = useRef(null);
 
-    useEffect(() => {
-        (async () => await LoadAppointment())();
-    }, []);
-
-    async function LoadAppointment() {
+    const LoadAppointment = useCallback(async () => {
         try {
             const result = await axios.get(`/appointment`);
             setAppointment(result.data);
         } catch (err) {
             showError(err.message);
         }
-    }
+    }, []);
+
+    useEffect(() => {
+        LoadAppointment();
+    }, [LoadAppointment]);
 
     const showError = (e) => {
         if (toast.current) {
@@ -94,7 +94,7 @@ export default function AdminAppointment() {
                     <div className="card">
                         <DataTable value={appointment} header={header} footer={footer} tableStyle={{ minWidth: '60rem' }}>
                             <Column field="name" header="Name"></Column>
-                            <Column field="address" header="email"></Column>
+                            <Column field="address" header="Address"></Column>
                             <Column field="phone_number" header="phone"></Column>
                             <Column header="Delete" body={Delete}></Column>
                         </DataTable>
