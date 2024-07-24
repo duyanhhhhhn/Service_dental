@@ -8,12 +8,13 @@ import AdminNav from '../Components/AdminNav';
 import ModalAddNews from '../Components/ModalAddNews';
 import Swal from 'sweetalert2';
 import URL from '../../../api/api';
+import { Toast } from 'primereact/toast';
 
 export default function AdminNews() {
     const [news, setNews] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const toast = useRef(null);
-
+    const [newstoEdit, setNewstoEdit] = useState(null);
     useEffect(() => {
         (async () => await LoadNews())();
     }, []);
@@ -30,9 +31,7 @@ export default function AdminNews() {
     const imageBodyTemplate = (rowData) => {
         return <img src={rowData.thumbnail} alt={rowData.name} style={{ height: '50px', width: '50px' }} />;
     };
-    const editNews = (rowData) => {
-        console.log('Edit News', rowData);
-    };
+  
 
     const showError = (e) => {
         if (toast.current) {
@@ -71,6 +70,10 @@ export default function AdminNews() {
             showError(err.message);
         }
     }
+      const editNews = (rowData) => {
+        setNewstoEdit(rowData);
+        setShowModal(true);
+    };
 
     const Edit = (rowData) => {
         return (
@@ -100,7 +103,7 @@ export default function AdminNews() {
     const header = (
         <div className="flex flex-wrap align-items-center justify-content-between gap-2">
             <span className="text-xl text-900 font-bold">News</span>
-            <Button style={{ marginLeft: '100px' }} onClick={() => setShowModal(true)}>Add+</Button>
+            <Button style={{ marginLeft: '100px' }}  onClick={() => { setShowModal(true); setNewstoEdit(null); }}>Add+</Button>
         </div>
     );
 
@@ -108,11 +111,12 @@ export default function AdminNews() {
 
     return (
         <Container fluid className='wrapper'>
+           <Toast ref={toast} />
             <Row>
                 <Col lg={2} className='padding-0 d-xl-flex d-lg-none d-xs-none d-sm-none xs-none'>
                     <AdminNav page={'News'} />
                 </Col>
-                <ModalAddNews show={showModal} setShowModal={setShowModal} Load={LoadNews}/>
+                <ModalAddNews show={showModal} setShowModal={setShowModal} Load={LoadNews} newstoEdit={newstoEdit} toast={toast} />
                 <Col className='bg-content d-xl-10 d-md-12 d-xs-12'>
                     <div className="card">
                         <DataTable value={news} header={header} footer={footer} tableStyle={{ minWidth: '60rem' }}>

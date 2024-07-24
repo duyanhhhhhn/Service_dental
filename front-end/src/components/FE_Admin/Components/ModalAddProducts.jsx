@@ -56,7 +56,6 @@ const handleSubmit = async (e) => {
     try {
         if (productToEdit) {
             const response = await axios.put(`${URL}/products/${productToEdit.id}`, formData);
-            console.log(response.data); 
             Swal.fire({
                 icon: 'success',
                 title: 'Success',
@@ -65,7 +64,6 @@ const handleSubmit = async (e) => {
             showSuccess('Product updated successfully');
         } else {
             const response = await axios.post(`${URL}/products`, formData);
-            console.log(response.data); 
             Swal.fire({
                 icon: 'success',
                 title: 'Success',
