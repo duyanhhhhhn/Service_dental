@@ -19,16 +19,6 @@ class NewsController extends Controller
         return News::findOrFail($id);
 
     }
-
-    public function newspost(Request $request)// phương thức post
-    {
-        $data = $request->all();
-        return response()->json([
-            'message' => 'This is a POST request',
-            'data' => $data
-        ]);
-    }
-
     public function deleteNews(Request $request, $id)
     {
         $news = News::find($id);
@@ -41,18 +31,18 @@ class NewsController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'content_link' => 'required|string',
             'thumbnail' => 'required|string',
+            'content' => 'required|string',
             'status' => 'required|boolean',
+
         ]);
             $news = News::create([
-                'title' => $validatedData['title'],
-                'description' => $validatedData['description'],
-                'content_link' => $validatedData['content_link'],
-                'thumbnail' => $validatedData['thumbnail'],
-                'status' => $validatedData['status'],
+            'title' => $validatedData['title'],
+            'description' => $validatedData['description'],
+            'thumbnail' => $validatedData['thumbnail'],
+            'content' => $validatedData['content'],
+            'status' => $validatedData['status'],
             ]);
-
         return response()->json([
             'message' => 'Thêm thành công',
             'news' => $news
@@ -62,31 +52,16 @@ class NewsController extends Controller
 
     public function updatenews(Request $request, $id)
     {
-        $news = News::findOrFail($id);
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'content_link' => 'required|string',
-            'thumbnail' => 'required|string',
-            'status' => 'required|boolean',
-        ]);
-        $news->title = $validatedData['title'];
-        $news->description = $validatedData['description'];
-        $news->content_link = $validatedData['content_link'];
-        $news->thumbnail = $validatedData['thumbnail'];
-        $news->status = $validatedData['status'];
-        $news->save();
-
-        return response()->json([
-            'message' => 'Cập nhật thành công',
-            'news' => $news
-        ]);
+        $news = News::find($id);
+        $news->update($request->all());
+        return response()->json('success updated');
     }
 
     
 
     
 }
+
 
 
 

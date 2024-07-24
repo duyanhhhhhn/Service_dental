@@ -12,9 +12,9 @@ class News extends Model
     protected $fillable = [
         'title',
         'description',
-        'content_link',
         'thumbnail',
         'status',
+        'content'
     ];
     public function new()
     {
