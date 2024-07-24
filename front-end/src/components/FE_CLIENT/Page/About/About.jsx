@@ -13,7 +13,7 @@ const About = () => {
               <div className="container-tilte">
                 <div className="slide-content">
                   <h2><span>Free Dental Care for Kids and Seniors for Eligible Families</span></h2>
-                  <button className="btn btn-danger">Book Appointment Online</button>
+                  <a href='/appointment' className="btn btn-danger">Book Appointment Online</a>
                 </div>
               </div>
             </div>
@@ -27,8 +27,7 @@ const About = () => {
           <h1><span>About Us Dentists Clinic</span></h1>
         </div>
         <p>
-          We are committed to offering quality dental care for the whole family. Whether you are in need of cosmetic dentistry, restorative work, or a <br />
-          <a>regular dental checkup</a>, you are in good hands with our friendly, skilled dental technicians and qualified dentists.
+          We are committed to offering quality dental care for the whole family. Whether you are in need of cosmetic dentistry, restorative work, or a you are in good hands with our friendly, skilled dental technicians and qualified dentists.
         </p>
         <br />
       </div>
