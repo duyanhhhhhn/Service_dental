@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Container, Col, Row } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { Card } from 'react-bootstrap'
-import Cookies from 'js-cookie';
 import { BsFillPersonFill,BsFillTrophyFill,BsChatSquareTextFill} from "react-icons/bs";
 import CardItem from './Carditem'
 import '../Components/AdminHome.scss'
@@ -13,11 +12,6 @@ export default function AdminHome() {
     useEffect(() => {
       document.title = 'Dental-Admin';
     }, []);
-  useEffect(() => {
-    if (!Cookies.get('login')) {
-      navigate('/login')
-    }
-  })
   const [products, setProducts] = useState();
   const [news, setNews] = useState();
   const [appointment, setAppointment] = useState();

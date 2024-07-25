@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./components/FE_CLIENT/Layouts/Footer";
 import Home from "./components/FE_CLIENT/Page/Home";
 import Header from './components/FE_CLIENT/Layouts/Navbar';
@@ -8,10 +9,10 @@ import Service from './components/FE_CLIENT/Page/Service';
 import News from './components/FE_CLIENT/Page/News/News';
 import axios from 'axios';
 import Products from './components/FE_CLIENT/Page/Product/Products';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';  
 import 'primereact/resources/primereact.min.css';              
 import 'primeicons/primeicons.css';                              
+import 'primeflex/primeflex.css';   
 import Appointment from './components/FE_CLIENT/Page/Appointment/Appointment';
 import AdminProducts from './components/FE_Admin/AD_Products/AdminProducts';
 import AdminNews from './components/FE_Admin/AD_News/AdminNews';

@@ -15,15 +15,7 @@ export default function AdminNews() {
     const [showModal, setShowModal] = useState(false);
     const [newToEdit, setNewToEdit] = useState(null);
     const toast = useRef(null);
-
-    const showError = (e) => {
-        toast.current.show({ severity: 'error', summary: 'ERROR', detail: e ? e : "Too many requests", life: 1000 });
-    };
-
-    const showSuccess = (e) => {
-        toast.current.show({ severity: 'success', summary: 'SUCCESS', detail: e ? e : "Action successful", life: 1000 });
-    };
-
+    const [newstoEdit, setNewstoEdit] = useState(null);
     useEffect(() => {
         (async () => await LoadNews())();
     }, []);
@@ -31,7 +23,20 @@ export default function AdminNews() {
     async function LoadNews() {
             const result = await axios.get(`${URL}/news`);
             setNews(result.data);
-        } 
+    }
+
+
+    const showError = (e) => {
+        if (toast.current) {
+            toast.current.show({ severity: 'error', summary: 'ERROR', detail: e ? e : "Too many requests", life: 1000 });
+        }
+    };
+
+    const showSuccess = (e) => {
+        if (toast.current) {
+            toast.current.show({ severity: 'success', summary: 'SUCCESS', detail: e ? e : "Action successful", life: 1000 });
+        }
+    };
 
     const confirmDelete = (item) => {
         Swal.fire({
@@ -58,6 +63,10 @@ export default function AdminNews() {
             showError(err.message);
         }
     }
+      const editNews = (rowData) => {
+        setNewstoEdit(rowData);
+        setShowModal(true);
+    };
 
     const imageBodyTemplate = (rowData) => {
         return <img src={rowData.thumbnail} alt='Error' style={{ height: '50px', width: '50px' }} />;
@@ -89,16 +98,23 @@ export default function AdminNews() {
         );
     };
 
-    const header = renderHeader();
-    const footer = `In total there are ${news ? news.length : 0} news.`;
+    const header = (
+        <div className="flex flex-wrap align-items-center justify-content-between gap-2">
+            <span className="text-xl text-900 font-bold">News</span>
+            <Button style={{ marginLeft: '100px' }}  onClick={() => { setShowModal(true); setNewstoEdit(null); }}>Add+</Button>
+        </div>
+    );
+
+    const footer = `In total there are ${news ? news.length : 0} News.`;
 
     return (
         <Container fluid className='wrapper'>
-            <Toast ref={toast} />
+           <Toast ref={toast} />
             <Row>
                 <Col lg={2} className='padding-0 d-xl-flex d-lg-none d-xs-none d-sm-none xs-none'>
                     <AdminNav page={'News'} />
                 </Col>
+                <ModalAddNews show={showModal} setShowModal={setShowModal} Load={LoadNews} newstoEdit={newstoEdit} toast={toast} />
                 <Col className='bg-content d-xl-10 d-md-12 d-xs-12'>
                     <div className="card">
                         <DataTable value={news} header={header} footer={footer} paginator rows={10} >

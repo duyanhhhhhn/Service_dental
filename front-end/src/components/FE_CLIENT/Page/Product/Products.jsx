@@ -1,15 +1,9 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'primereact/resources/themes/lara-light-indigo/theme.css';  
-import 'primereact/resources/primereact.min.css';              
-import 'primeicons/primeicons.css'; 
-import 'primeflex/primeflex.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Button } from 'primereact/button';
 import { DataView } from 'primereact/dataview';
-import { Container } from 'react-bootstrap';
 import { FaSearch } from 'react-icons/fa';
-import { Row, Form, Col, InputGroup } from "react-bootstrap";
-
+import { Form, Row, Col, InputGroup, Container } from 'react-bootstrap';
 export default function BasicDemo() {
     const [products, setProducts] = useState([]);
     const [layout, setLayout] = useState('list');
@@ -26,7 +20,6 @@ export default function BasicDemo() {
             setProducts(result);
         });
     };
-
     const gridItem = (product) => {
         return (
             <div className="col-12 sm:col-6 lg:col-4 xl:col-3 p-2" key={product.id}>
