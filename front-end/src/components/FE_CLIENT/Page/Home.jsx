@@ -1,57 +1,53 @@
 import React from "react";
-import { Container, Row, Col, ListGroup, Image } from "react-bootstrap";
 import Banner from "./Banner";
 import dentalImg from "../Layouts/img/dentalImg.jpg";
-import teeth1 from "../Layouts/img/teeth1.jpg";
 import Services from "./Services";
 import News from "./NewsandEvent";
+import '../Page/About/About.css';
+import { BsFillCheckCircleFill } from "react-icons/bs";
+import '../Page/Home.css';
 
 const Home = () => {
   return (
     <>
       <Banner />
-      <Container className="py-16">
-        <Row className="d-flex flex-lg-row flex-column-reverse">
-          <Col lg={6} className="d-flex justify-content-center align-items-center">
-            <Image src={dentalImg} fluid />
-          </Col>
-          <Col lg={6} className="ml-lg-8">
-            <h1 className="text-3xl font-Poppins font-semibold">
-              About Dental Clinic
-            </h1>
-            <p className="py-8">
-              Dental Clinic - A prestigious dental system in Vietnam with over 30 clinics across 6 provinces nationwide.
-            </p>
-            <Row className="d-flex justify-content-between">
-              <Col lg={6}>
-                <ListGroup variant="flush">
-                  <ListGroup.Item className="d-flex align-items-center">
-                    <i className="far fa-hand-point-right text-3xl text-green-500"></i>
-                    <span className="text-lg pb-8 px-4 uppercase font-bold leading-snug text-black hover:opacity-75">
-                      Well-trained staff
-                    </span>
-                  </ListGroup.Item>
-                  <ListGroup.Item className="d-flex align-items-center">
-                    <i className="far fa-hand-point-right text-3xl text-green-500"></i>
-                    <span className="text-lg pb-8 px-4 uppercase font-bold leading-snug text-black hover:opacity-75">
-                      We provide quality treatment
-                    </span>
-                  </ListGroup.Item>
-                  <ListGroup.Item className="d-flex align-items-center">
-                    <i className="far fa-hand-point-right text-3xl text-green-500"></i>
-                    <span className="text-lg pb-8 px-4 uppercase font-bold leading-snug text-black hover:opacity-75">
-                      Best prices
-                    </span>
-                  </ListGroup.Item>
-                </ListGroup>
-              </Col>
-              <Col lg={6} className="d-flex justify-content-center align-items-center">
-                <Image src={teeth1} fluid />
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
+
+      <section className='expert-section' data-aos="fade-up" data-aos-duration="2000">
+            <div className="container">
+                <div className="row align-items-center">
+                    <div className="col-lg-6 col-md-6">
+                        <div className="expert-text">
+                                <div className='section-title'>
+                                            <span> About Dental Clinic</span>
+                                            <h5>Dental Clinic - A prestigious dental system in Vietnam with over 30 clinics across 6 provinces nationwide.</h5>
+                                            <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts</p>
+                                        </div>
+
+                            <ul>
+                                <li>
+                                    <BsFillCheckCircleFill />
+                                    Well-trained staff
+                                </li>
+                                <li>
+                                    <BsFillCheckCircleFill />
+                                    We provide quality treatment
+                                </li>
+                                <li>
+                                    <BsFillCheckCircleFill />
+                                    Best prices
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="col-lg-6 col-md-6">
+                        <div className="expert-img">
+                            <img src={dentalImg} alt="expert" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
       <Services />
       <News />
       <div style={{ paddingBottom: '50px' }}></div>

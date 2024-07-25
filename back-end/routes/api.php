@@ -24,8 +24,11 @@ Route::post('/login',[AuthController::class,'login']);
 //news
 Route::get('/news',[NewsController::class,'news']);
 Route::post('/news',[NewsController::class,'newspost']);
+Route::post('/addnews',[NewsController::class,'addnews']);
 Route::delete('/news/{id}', [NewsController::class, 'deleteNews']);
 Route::get('/news/{id}',[NewsController::class,'details']);
+Route::put('/news/{id}',[NewsController::class,'editNews']);
+
 // appointment
 Route::get('/appointment',[AppointmentsController::class,'index']);
 Route::delete('/appointment/{id}',[AppointmentsController::class,'deleteappointment']);

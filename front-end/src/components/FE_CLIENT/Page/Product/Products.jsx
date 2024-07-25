@@ -1,51 +1,87 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { Image, Container, Row, Form, Col, Card, Button } from "react-bootstrap";
-import { FaSearch } from "react-icons/fa";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'primereact/resources/themes/lara-light-indigo/theme.css';  
+import 'primereact/resources/primereact.min.css';              
+import 'primeicons/primeicons.css'; 
+import 'primeflex/primeflex.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { DataView } from 'primereact/dataview';
+import { Container } from 'react-bootstrap';
+import { FaSearch } from 'react-icons/fa';
+import { Row, Form, Col, InputGroup } from "react-bootstrap";
 
-const Products = () => {
+export default function BasicDemo() {
     const [products, setProducts] = useState([]);
-    
+    const [layout, setLayout] = useState('list');
+    const [keyword, setKeyword] = useState("");
+
     useEffect(() => {
-        axios.get('/products').then(resp => setProducts(resp.data));
+        axios.get('/products').then((resp) => setProducts(resp.data));
     }, []);
 
-    const [keyword, setKeyword] = useState("");
     const handleSearch = (e) => {
-      e.preventDefault();
-      let result = products.filter(item => item.name.includes(keyword));
-      setProducts(result)
-    }
+        e.preventDefault();
+        axios.get('/products').then((resp) => {
+            let result = resp.data.filter(item => item.name.toLowerCase().includes(keyword.toLowerCase()));
+            setProducts(result);
+        });
+    };
+
+    const gridItem = (product) => {
+        return (
+            <div className="col-12 sm:col-6 lg:col-4 xl:col-3 p-2" key={product.id}>
+                <div className="p-4 border-1 surface-border surface-card border-round" style={{ height: '100%' }}>
+                    <div className="flex flex-wrap align-items-center justify-content-between gap-2">
+                        <div className="flex align-items-center gap-2">
+                            <i className="pi pi-tag"></i>
+                        </div>
+                    </div>
+                    <div className="flex flex-column align-items-center gap-3 py-3">
+                        <img className="w-9 shadow-2 border-round" src={product.thumbnail} alt={product.name} />
+                        <div className="text-lg font-bold">{product.name}</div>
+                        <div className="text-sm">{product.description}</div>
+                    </div>
+                    <div className="flex align-items-center justify-content-between">
+                        <span className="text-xl font-semibold">${product.price}</span>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
+    const itemTemplate = (product) => {
+        if (!product) {
+            return;
+        }
+        return gridItem(product);
+    };
+
+    const header = () => {
+        return (
+            <Container>
+                <Form onSubmit={handleSearch}>
+                    <Row className="align-items-center">
+                        <Col md={6}>
+                            <InputGroup>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Find product..."
+                                    value={keyword}
+                                    onChange={(e) => setKeyword(e.target.value)}
+                                    className="custom-search-input"
+                                />
+                                <InputGroup.Text>
+                                    <FaSearch />
+                                </InputGroup.Text>
+                            </InputGroup>
+                        </Col>
+                    </Row>
+                </Form>
+            </Container>
+        );
+    };
 
     return (
-        <Container>
-            <Form onSubmit={handleSearch}>
-                <Form.Control type="text " placeholder="Nhập vào thông tin tìm kiếm ... " onChange={(e) => setKeyword(e.target.value)}/>
-                <Button style={{margin : "15px 15px 15px 0"}} onClick={handleSearch}>
-                <FaSearch/> Tìm kiếm
-                </Button>
-             </Form>
-            <Row>
-                {products?.map((item, index) => (
-                    <Col key={index} md={4} className="mb-4 my-5">
-                        <Card className="h-100" style={{border:'1px solid #333'}}>
-                            <Image src={item.thumbnail} alt="product" fluid className="card-img-top" style={{border:'1px solid #ccc'}}/>
-                            <Card.Body>
-                                <Card.Title>{item.name}</Card.Title>
-                                <Card.Text>
-                                    <span className="text-primary">{item.price}$</span>
-                                    <br />
-                                    <span className="text-gray-500">{item.description}</span>
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
-        </Container>
-        
-        
+        <DataView value={products} layout={layout} itemTemplate={itemTemplate} header={header()} />
     );
 }
-
-export default Products;

@@ -1,0 +1,12 @@
+.custom-search-input {
+    border: 3px solid #74C0FC;
+    margin-left: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-search-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
