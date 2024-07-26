@@ -8,7 +8,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\AppointmentsController;
-use App\Models\producttypes;
+use App\Http\Controllers\ServicesController;
  
 
 Route::get('/user', function (Request $request) {
@@ -31,6 +31,9 @@ Route::put('/news/{id}',[NewsController::class,'updatenews']);
 Route::get('/appointment',[AppointmentsController::class,'index']);
 Route::delete('/appointment/{id}',[AppointmentsController::class,'deleteappointment']);
 Route::post('/appointment',[AppointmentsController::class,'create']);
+
+//services
+Route::get('/services', [ServicesController::class, 'index']);
 
 
 

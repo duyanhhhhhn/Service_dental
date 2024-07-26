@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
+import './Details.css';
 
 const Details = () => {
     const { id } = useParams();
@@ -12,29 +13,49 @@ const Details = () => {
             .then(response => {
                 setNews(response.data);
             })
+            .catch(error => {
+                console.error("There was an error fetching the news!", error);
+            });
     }, [id]);
 
     if (!news) {
-        return <Container>
-            <h3 className='text-center py-5'>404 ERROR</h3>
-        </Container>;
+        return (
+            <Container className="text-center py-5">
+                <h3>404 ERROR: News Not Found</h3>
+            </Container>
+        );
     }
 
     return (
-       <Container className="py-4 d-flex flex-column align-items-center" >
-            
-            <h1>{news.title}</h1>
-            <hr width="100%" size="2" color="black" />
-            <img 
-                src={news.thumbnail} 
-                alt="product" 
-                className="card-img-top" 
-                style={{ width: "100%", maxHeight: "700px" }} 
-            />
-            <p className='text-center '>Picture for {news.title}</p>
-            <hr width="100%" size="2" color="black" />
-            <p style={{ fontSize: "25px" }}>{news.content}</p>
-
+        <Container className="news-details py-5">
+            <Row>
+                <Col>
+                    <h1 className="news-title">{news.title}</h1>
+                    <p className="news-date">Published on {new Date(news.created_at).toLocaleDateString()}</p>
+                </Col>
+            </Row>
+            <Row className="mt-4">
+                <Col md={8}>
+                    <img src={news.thumbnail} alt={news.title} className="img-fluid news-image" />
+                    <div className="news-content mt-4">
+                        <p>{news.content}</p>
+                    </div>
+                </Col>
+                <Col md={4}>
+                    <div className="author-box p-4">
+                        <h4>About the Author</h4>
+                        <p>{news.author}</p>
+                    </div>
+                    <div className="related-articles mt-4 p-4">
+                        <h4>Related Articles</h4>
+                        <ul>
+                            <li><a href="/news/1">Dental Health Tips for Kids</a></li>
+                            <li><a href="/news/2">How to Prevent Gum Disease</a></li>
+                            <li><a href="/news/3"> Maintain Good Oral Hygiene Brush Regularly</a></li>
+                        </ul>
+                    </div>
+                </Col>
+            </Row>
         </Container>
     );
 }

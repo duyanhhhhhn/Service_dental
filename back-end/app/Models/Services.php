@@ -5,20 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class News extends Model
+class Services extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'title',
         'description',
-        'author',
         'thumbnail',
         'status',
-        'content'
     ];
-    public function new()
-    {
-        return $this->belongsTo(News::class);
-    }
 }
