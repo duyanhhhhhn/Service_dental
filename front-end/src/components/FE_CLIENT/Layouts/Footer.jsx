@@ -9,7 +9,6 @@ const Footer = () => {
       <Container>
         <Row className="justify-content-center">
           <Col lg={3}>
-            <h1 className="text-2xl font-Poppins">Dental System</h1>
             <p> 31 Nguyen Dinh Chieu, Da Kao Ward, District 1</p>
             <p>101 Suong Nguyet Anh, Ben Thanh Ward, District 1</p>
             <p>345 Le Van Sy, Ward 13, District 3</p>
@@ -31,7 +30,7 @@ const Footer = () => {
             <p>Cosmetic Crowns</p>
           </Col>
           <Col lg={3}>
-            <h1 className="text-2xl font-Poppins">Connect with Us</h1>
+            <h1 className="text-2xl">Connect with Us</h1>
             <Form className="d-flex">
               <Form.Control
                 type="email"

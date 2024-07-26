@@ -1,13 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Row, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import { InputText } from 'primereact/inputtext';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import URL from '../../../api/api';
-import { InputTextarea } from 'primereact/inputtextarea';
 
 export default function ModalAddNews({ show, setShowModal, Load, newstoEdit,toast }) {
     const [title, setTitle] = useState('');

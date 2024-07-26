@@ -3,17 +3,16 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import axios from 'axios';
-import { Toast } from 'primereact/toast';
 import { Col, Container, Row } from 'react-bootstrap';
 import AdminNav from '../Components/AdminNav';
 import ModalAddNews from '../Components/ModalAddNews';
 import Swal from 'sweetalert2';
 import URL from '../../../api/api';
+import { Toast } from 'primereact/toast';
 
 export default function AdminNews() {
     const [news, setNews] = useState([]);
     const [showModal, setShowModal] = useState(false);
-    const [newToEdit, setNewToEdit] = useState(null);
     const toast = useRef(null);
     const [newstoEdit, setNewstoEdit] = useState(null);
     useEffect(() => {
@@ -21,10 +20,18 @@ export default function AdminNews() {
     }, []);
 
     async function LoadNews() {
-            const result = await axios.get(`${URL}/news`);
+        try {
+            const result = await axios.get(`/news`);
             setNews(result.data);
+        } catch (err) {
+            showError(err.message);
+        }
     }
 
+    const imageBodyTemplate = (rowData) => {
+        return <img src={rowData.thumbnail} alt={rowData.name} style={{ height: '50px', width: '50px' }} />;
+    };
+  
 
     const showError = (e) => {
         if (toast.current) {
@@ -49,12 +56,12 @@ export default function AdminNews() {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                deleteNew(item);
+                deleteNews(item);
             }
         });
     };
 
-    async function deleteNew(item) {
+    async function deleteNews(item) {
         try {
             await axios.delete(`${URL}/news/${item.id}`);
             setNews(news.filter(p => p.id !== item.id));
@@ -68,34 +75,29 @@ export default function AdminNews() {
         setShowModal(true);
     };
 
-    const imageBodyTemplate = (rowData) => {
-        return <img src={rowData.thumbnail} alt='Error' style={{ height: '50px', width: '50px' }} />;
-    };
-
-    const editNew = (rowData) => {
-        setNewToEdit(rowData);
-        setShowModal(true);
-    };
-
-    const editBodyTemplate = (rowData) => {
+    const Edit = (rowData) => {
         return (
-            <Button icon="pi pi-pencil" className="p-button-rounded p-button-success mr-2" onClick={() => editNew(rowData)} />
+            <React.Fragment>
+                <Button icon="pi pi-pencil" className="p-button-rounded p-button-success mr-2" onClick={() => editNews(rowData)} />
+            </React.Fragment>
         );
     };
 
-    const deleteBodyTemplate = (rowData) => {
+    const Delete = (rowData) => {
         return (
-            <Button icon="pi pi-trash" className="p-button-rounded p-button-danger" onClick={() => confirmDelete(rowData)} />
+            <React.Fragment>
+                <Button icon="pi pi-trash" className="p-button-rounded p-button-danger" onClick={() => confirmDelete(rowData)} />
+            </React.Fragment>
         );
     };
 
-    const renderHeader = () => {
-        return (
-            <div className="flex flex-wrap align-items-center justify-content-between gap-2">
-                <span className="text-xl text-900 font-bold">News</span>
-                <Button label="Add News" icon="pi pi-plus" className="p-button-success" onClick={() => { setShowModal(true); setNewToEdit(null); }} style={{ marginLeft: '800px' }} />
-            </div>
-        );
+    const contentBodyTemplate = (rowData) => {
+        const maxLength = 30;
+        const content = rowData.content;
+        if (content.length > maxLength) {
+            return content.substring(0, maxLength) + '...';
+        }
+        return content;
     };
 
     const header = (
@@ -117,18 +119,17 @@ export default function AdminNews() {
                 <ModalAddNews show={showModal} setShowModal={setShowModal} Load={LoadNews} newstoEdit={newstoEdit} toast={toast} />
                 <Col className='bg-content d-xl-10 d-md-12 d-xs-12'>
                     <div className="card">
-                        <DataTable value={news} header={header} footer={footer} paginator rows={10} >
-                            <Column field="title" header="Title" />
-                            <Column field="thumbnail" header="Image" body={imageBodyTemplate} />
-                            <Column field="description" header="Description" />
-                            <Column field="content" header="Content" />
-                            <Column header="Edit" body={editBodyTemplate} />
-                            <Column header="Delete" body={deleteBodyTemplate} />
+                        <DataTable value={news} header={header} footer={footer} tableStyle={{ minWidth: '60rem' }}>
+                            <Column field="title" header="Name"></Column>
+                            <Column field="thumbnail" header="Image" body={imageBodyTemplate}></Column>
+                            <Column field="description" header="Description"></Column>
+                            <Column field="content" header="Content" body={contentBodyTemplate}></Column>
+                            <Column header="Edit" body={Edit}></Column>
+                            <Column header="Delete" body={Delete}></Column>
                         </DataTable>
                     </div>
                 </Col>
             </Row>
-            <ModalAddNews show={showModal} setShowModal={setShowModal} Load={LoadNews} toast={toast} newToEdit={newToEdit} />
         </Container>
     );
 }
