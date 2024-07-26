@@ -27,7 +27,7 @@ axios.defaults.baseURL = 'http://127.0.0.1:8000/api';
 const App = () => {
   const location = useLocation();
 
-  const isClientRoute = ["/", "/About", "/Services", "/News", "/Products", "/Appointment"].includes(location.pathname) || location.pathname.match(/^\/News\/[0-9a-zA-Z]+$/);
+  const isClientRoute = ["/", "/About", "/Services", "/News", "/Products", "/contact"].includes(location.pathname) || location.pathname.match(/^\/News\/[0-9a-zA-Z]+$/);
 
   return (
     <>
@@ -40,7 +40,7 @@ const App = () => {
         <Route path="/Services" element={<Service />} />
         <Route path="/News" element={<News />} />
         <Route path="/Products" element={<Products />} />
-        <Route path="/Appointment" element={<Appointment />} />
+        <Route path="/Contact" element={<Appointment />} />
         <Route path='/News/:id' element={<Details />} />
         {/* Admin */}
         <Route path="/login" element={<Login />} />

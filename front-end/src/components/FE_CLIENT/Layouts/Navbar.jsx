@@ -14,7 +14,7 @@ const Header = () => {
             <Nav.Link href="/About"  style={{ color: 'white' }}>About us</Nav.Link>
             <Nav.Link href="/Services" style={{ color: 'white' }}>Services</Nav.Link>
             <Nav.Link href="Products" style={{ color: 'white' }}>Products</Nav.Link>
-            <Nav.Link href="Appointment"  style={{ color: 'white' }}>Appointment</Nav.Link>
+            <Nav.Link href="/contact"  style={{ color: 'white' }}>Contact us</Nav.Link>
             <Nav.Link href="/News" style={{ color: 'white' }}>News</Nav.Link>
           </Nav>
         </Navbar.Collapse>

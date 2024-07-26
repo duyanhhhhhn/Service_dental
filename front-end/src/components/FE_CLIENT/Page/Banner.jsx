@@ -30,13 +30,13 @@ const Banner = () => {
           Contact us if you have any dental issues.
         </p>
         <div className="mt-4">
-          <Link to="/appointment" style={{ marginRight: '5px' }}>
+          <Link to="/contact" style={{ marginRight: '5px' }}>
             <Button
               variant="primary"
               className="px-4 py-2 font-weight-medium rounded"
               style={{ backgroundColor: 'white', color: '#333' }}
             >
-             Book An Appointment
+             Contact us
             </Button>
           </Link>
           <Link to="#">

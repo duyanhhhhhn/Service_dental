@@ -11,7 +11,6 @@ const Home = () => {
   return (
     <>
       <Banner />
-
       <section className='expert-section' data-aos="fade-up" data-aos-duration="2000">
             <div className="container">
                 <div className="row align-items-center">

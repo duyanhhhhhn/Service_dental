@@ -53,7 +53,7 @@ const About = () => {
                   <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
                 </div>
                 <div className="theme-btn">
-                  <Link to='/Appointment'>Book an appointment</Link>
+                  <Link to='/contact'>Book an appointment</Link>
                 </div>
               </div>
             </div>
