@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class NewsController extends Controller
 {
     //
-    public function news()// phương thức get
+    public function news()
     {
         $news = News::all();
         return response()->json($news);
@@ -26,7 +26,7 @@ class NewsController extends Controller
         return response()->json('delete success');
     }
 
-    public function editnews(Request $request, $id)
+    public function addnews(Request $request)
     {
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
