@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->string('author');
+            $table->string('author')->default(null);
             $table->string('content');
             $table->string('thumbnail');
             $table->tinyInteger('status')->default(1);
