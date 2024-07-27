@@ -92,7 +92,7 @@ export default function AdminProducts() {
         return (
             <div className="flex flex-wrap align-items-center justify-content-between gap-2">
                 <span className="text-xl text-900 font-bold">Products</span>
-                <Button label="Thêm sản phẩm" icon="pi pi-plus" className="p-button-success" onClick={() => { setShowModal(true); setProductToEdit(null); }} style={{ marginLeft: '800px' }} />
+                <Button label="Add products" icon="pi pi-plus" className="p-button-success" onClick={() => { setShowModal(true); setProductToEdit(null); }} style={{ marginLeft: '800px' }} />
             </div>
         );
     };
