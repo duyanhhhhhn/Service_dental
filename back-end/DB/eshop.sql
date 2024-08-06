@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 26, 2024 at 01:24 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost:3306
+-- Generation Time: Aug 06, 2024 at 04:16 AM
+-- Server version: 8.3.0
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `appointments` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `phone_number` varchar(255) NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -43,8 +43,7 @@ CREATE TABLE `appointments` (
 
 INSERT INTO `appointments` (`id`, `name`, `address`, `phone_number`, `status`, `created_at`, `updated_at`) VALUES
 (21, 'abaxcas', 'asdasda', '123123132', 1, '2024-07-23 00:26:43', '2024-07-23 00:26:43'),
-(22, 'jhbkjhkj', 'bkjbkj', '4312543152', 1, '2024-07-23 00:29:20', '2024-07-23 00:29:20'),
-(23, '123123', 'ádasdas', '123123', 1, '2024-07-23 00:32:57', '2024-07-23 00:32:57');
+(22, 'jhbkjhkj', 'bkjbkj', '4312543152', 1, '2024-07-23 00:29:20', '2024-07-23 00:29:20');
 
 -- --------------------------------------------------------
 
@@ -53,9 +52,9 @@ INSERT INTO `appointments` (`id`, `name`, `address`, `phone_number`, `status`, `
 --
 
 CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) NOT NULL,
-  `batch` int(11) NOT NULL
+  `id` int UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -79,15 +78,15 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `news` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `author` varchar(255) DEFAULT NULL,
-  `thumbnail` varchar(255) NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `id` bigint UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `author` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `thumbnail` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `content` longtext NOT NULL
+  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -107,8 +106,8 @@ INSERT INTO `news` (`id`, `title`, `description`, `author`, `thumbnail`, `status
 --
 
 CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -119,12 +118,12 @@ CREATE TABLE `password_reset_tokens` (
 --
 
 CREATE TABLE `personal_access_tokens` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) NOT NULL,
-  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `token` varchar(64) NOT NULL,
-  `abilities` text DEFAULT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -165,7 +164,14 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (27, 'App\\Models\\User', 2, 'admin@gmail.com', '364b89b4d13337affc4c647cb5a7c084aba8d7a97093007b2ab32aefc61fcc34', '[\"*\"]', NULL, NULL, '2024-07-23 01:50:30', '2024-07-23 01:50:30'),
 (28, 'App\\Models\\User', 2, 'admin@gmail.com', '466ca328efb38295e7d910517d3040bd9a230d4a7997681478aaeffd72a965ef', '[\"*\"]', NULL, NULL, '2024-07-23 01:52:08', '2024-07-23 01:52:08'),
 (29, 'App\\Models\\User', 2, 'admin@gmail.com', '5293e71c78ad8cebc8ce5abf2a2ccc6173f7f200f5ec8b50d88130c784dee808', '[\"*\"]', NULL, NULL, '2024-07-23 07:52:34', '2024-07-23 07:52:34'),
-(30, 'App\\Models\\User', 2, 'admin@gmail.com', '598c0f91416a30c815f79c25ed117154e975b78420c949f1b7c708e17c52c385', '[\"*\"]', NULL, NULL, '2024-07-23 07:52:35', '2024-07-23 07:52:35');
+(30, 'App\\Models\\User', 2, 'admin@gmail.com', '598c0f91416a30c815f79c25ed117154e975b78420c949f1b7c708e17c52c385', '[\"*\"]', NULL, NULL, '2024-07-23 07:52:35', '2024-07-23 07:52:35'),
+(31, 'App\\Models\\User', 2, 'admin@gmail.com', 'c5ed46d3ea802f234cb2e0bf4b64913cce292cd8fb53cee8e760b58dafb5f873', '[\"*\"]', NULL, NULL, '2024-07-26 02:42:43', '2024-07-26 02:42:43'),
+(32, 'App\\Models\\User', 2, 'admin@gmail.com', 'bf01e745dec29f498a5b13b59ecc21f839a06b07a70f4ce6bf5e04b739542833', '[\"*\"]', NULL, NULL, '2024-07-26 04:40:30', '2024-07-26 04:40:30'),
+(33, 'App\\Models\\User', 2, 'admin@gmail.com', '676281e48885f09db72a9d0393eadb99c810995134a0d4e824d1b6c4df1821ec', '[\"*\"]', NULL, NULL, '2024-07-26 05:04:24', '2024-07-26 05:04:24'),
+(34, 'App\\Models\\User', 2, 'admin@gmail.com', '96ac119ea8317d4c20be2c392654d9e0379aadad41f15f7684d3e2e2b6492b53', '[\"*\"]', NULL, NULL, '2024-07-26 05:07:28', '2024-07-26 05:07:28'),
+(35, 'App\\Models\\User', 2, 'admin@gmail.com', '3e087f0d86ee09cce20d6acd192b198192492740c327daf00932a139f9851000', '[\"*\"]', NULL, NULL, '2024-07-27 08:54:04', '2024-07-27 08:54:04'),
+(36, 'App\\Models\\User', 2, 'admin@gmail.com', '6585ec0a06db59900654b059f6994c39cece3e6d7e9072ff1448c9d7027ee51e', '[\"*\"]', NULL, NULL, '2024-07-29 03:19:24', '2024-07-29 03:19:24'),
+(37, 'App\\Models\\User', 2, 'admin@gmail.com', '210d02fd3da70962242b5292b4b867ff608d072efc902c8bf3cb54773599e549', '[\"*\"]', NULL, NULL, '2024-07-29 03:42:42', '2024-07-29 03:42:42');
 
 -- --------------------------------------------------------
 
@@ -174,13 +180,13 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 --
 
 CREATE TABLE `products` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `price` int(10) UNSIGNED NOT NULL,
-  `type_id` bigint(20) UNSIGNED NOT NULL,
-  `thumbnail` varchar(255) NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` int UNSIGNED NOT NULL,
+  `type_id` bigint UNSIGNED NOT NULL,
+  `thumbnail` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -202,8 +208,7 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `type_id`, `thumbn
 (10, 'Mouthguard', 'A rechargeable electric toothbrush with multiple brushing modes, including daily clean, sensitive, and gum care. It features a pressure sensor to prevent hard brushing and a timer to ensure recommended brushing time.', 30, 1, 'https://i5.walmartimages.com/seo/Shock-Doctor-Sport-Gel-Max-Sports-Protective-Mouth-Guard-Black-Adult_462b77a1-62a0-43f5-9429-fb3da52622f9_1.8de80a923411fd22570461648043f596.jpeg', 1, NULL, NULL),
 (18, '1312', '2313123', 2131, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN5_yrDMoSDUh612127-pdiF6-Goy9gwxShw&s', 1, '2024-07-22 21:25:14', '2024-07-22 21:25:14'),
 (20, 'Test', 'asdasdasd', 123, 1, 'https://media.istockphoto.com/id/1349328691/photo/young-happy-woman-during-dental-procedure-at-dentists-office.jpg?s=612x612&w=0&k=20&c=H0WBvMhyspSX10Xq65AFhF4DoMLzg8wOpqjjupwTWDE=', 1, '2024-07-22 21:44:53', '2024-07-22 21:44:53'),
-(23, 'asdasd', '234234', 324243, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2kw-mCAZHqWfqRCqhtOdddL5qtJ_daW0yYQ&s', 1, '2024-07-22 23:50:42', '2024-07-23 02:25:16'),
-(25, 'jhasdkjahskjdwqweq', 'avasd', 123, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGC-RJ0Bx12B5JuV41KsE4rCeQ-EfNv9298w&s', 1, '2024-07-23 01:10:37', '2024-07-23 02:21:32');
+(23, 'asdasd', '234234', 324243, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2kw-mCAZHqWfqRCqhtOdddL5qtJ_daW0yYQ&s', 1, '2024-07-22 23:50:42', '2024-07-23 02:25:16');
 
 -- --------------------------------------------------------
 
@@ -212,8 +217,8 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `type_id`, `thumbn
 --
 
 CREATE TABLE `product_types` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -233,11 +238,11 @@ INSERT INTO `product_types` (`id`, `name`, `created_at`, `updated_at`) VALUES
 --
 
 CREATE TABLE `services` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `thumbnail` varchar(255) NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `id` bigint UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `thumbnail` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -264,12 +269,12 @@ INSERT INTO `services` (`id`, `title`, `description`, `thumbnail`, `status`, `cr
 --
 
 CREATE TABLE `sessions` (
-  `id` varchar(255) NOT NULL,
-  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `ip_address` varchar(45) DEFAULT NULL,
-  `user_agent` text DEFAULT NULL,
-  `payload` longtext NOT NULL,
-  `last_activity` int(11) NOT NULL
+  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint UNSIGNED DEFAULT NULL,
+  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_agent` text COLLATE utf8mb4_unicode_ci,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_activity` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -335,14 +340,14 @@ INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, 
 --
 
 CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `adderss` varchar(255) NOT NULL DEFAULT '',
-  `phone_number` varchar(255) NOT NULL,
-  `role_id` tinyint(4) NOT NULL DEFAULT 0,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `adderss` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `phone_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role_id` tinyint NOT NULL DEFAULT '0',
+  `status` tinyint NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -433,49 +438,49 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `product_types`
 --
 ALTER TABLE `product_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
